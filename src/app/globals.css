@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* AKASHI 2026 — Creative School Festival */
+  --color-brand: #5b21b6;
+  --color-brand-deep: #3b176f;
+  --color-electric: #7c3aed;
+  --color-cyanx: #06b6d4;
+  --color-sky: #38bdf8;
+  --color-paper: #f8fafc;
+  --color-ink: #111827;
+  --color-gold: #facc15;
+  --color-mist: #ede9fe;
+
+  /* kompatibilitas kelas lama -> palet baru (tanpa edit massal) */
+  --color-plum: #5b21b6;
+  --color-plum-soft: #7c3aed;
+  --color-teal: #06b6d4;
+  --color-cream: #f8fafc;
+  --color-lavender: #ede9fe;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-btn: 10px;
+  --radius-card: 14px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyanx);
+  outline-offset: 2px;
+}
+
+/* scroll reveal — halus */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.img-zoom img {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.img-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* pola titik dekoratif */
+.dots {
+  background-image: radial-gradient(currentColor 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
 }
