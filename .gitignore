@@ -48,3 +48,9 @@ prisma/*.db
 prisma/*.db-journal
 public/uploads/
 dev.log
+
+# build output (branch production only)
+build.log
+standalone-test.log
+_production_wt
+deploy/

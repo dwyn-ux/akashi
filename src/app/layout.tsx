@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import { getSettings } from "@/lib/constants";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],

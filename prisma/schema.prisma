@@ -1,11 +1,12 @@
 generator client {
   provider = "prisma-client-js"
+  // ponytail: target linux utk standalone build Windows -> shared hosting
+  // (CloudLinux/RHEL + Debian). Trim sisakan 1 target sesuai OS server.
+  binaryTargets = ["native", "debian-openssl-3.0.x", "rhel-openssl-1.1.x", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
-  // ponytail: sqlite untuk dev lokal tanpa Postgres; saat deploy ganti provider
-  // ke "postgresql" + url env Neon/Supabase, lalu `prisma db push`.
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -20,7 +21,7 @@ model User {
 
 model Setting {
   key   String @id
-  value String
+  value String @db.Text
 }
 
 model Competition {
@@ -29,7 +30,7 @@ model Competition {
   name          String
   category      String   @default("Akademik")
   level         String   @default("SD")
-  description   String   @default("")
+  description   String   @default("") @db.Text
   minAge        Int?
   maxAge        Int?
   gradeClass    String?
@@ -38,16 +39,16 @@ model Competition {
   location      String?
   scheduleText  String?
   duration      String?
-  status        String   @default("DRAFT") // DRAFT|SOON|OPEN|CLOSED|DONE
+  status        String   @default("DRAFT")
   coverUrl      String?
-  teamSize      Int      @default(1) // 1 = individu; >1 = regu
+  teamSize      Int      @default(1)
   prize1        String?
   prize2        String?
   prize3        String?
   prizeExtra    String?
-  requirements  String? // syarat peserta, satu per baris
-  rules         String? // ketentuan lomba
-  requiredDocs  String? // dokumen wajib, satu per baris
+  requirements  String?  @db.Text
+  rules         String?  @db.Text
+  requiredDocs  String?  @db.Text
   contactPerson String?
   createdAt     DateTime @default(now())
   registrations Registration[]
@@ -64,7 +65,7 @@ model Participant {
   birthDate   DateTime
   school      String
   gradeClass  String
-  address     String
+  address     String   @db.Text
   whatsapp    String
   email       String?
   guardian    String
@@ -82,8 +83,8 @@ model Registration {
   regNumber      String   @unique
   status         String   @default("PENDING") // PENDING|VERIFIED|REJECTED|LOLOS|FINAL|SELESAI
   paymentStatus  String   @default("NONE") // NONE|UNPAID|PAID
-  adminNote      String?
-  extraChoice    String?
+  adminNote      String?  @db.Text
+  extraChoice    String?  @db.Text
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
@@ -105,7 +106,7 @@ model RegistrationDocument {
   registration   Registration @relation(fields: [registrationId], references: [id], onDelete: Cascade)
   docType        String
   fileName       String
-  filePath       String
+  filePath       String   @db.Text
 }
 
 // ponytail: anggota regu 2..N data ringkas; ketua tetap Participant lengkap
@@ -126,16 +127,16 @@ model RegistrationMember {
 }
 
 model Schedule {
-  id        String   @id @default(cuid())
-  title     String
-  date      DateTime
-  note      String?
+  id    String   @id @default(cuid())
+  title String
+  date  DateTime
+  note  String?  @db.Text
 }
 
 model Activity {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   name        String
-  description String   @default("")
+  description String    @default("") @db.Text
   imageUrl    String?
   date        DateTime?
   timeText    String?
@@ -144,8 +145,8 @@ model Activity {
 
 model Faq {
   id       String @id @default(cuid())
-  question String
-  answer   String
+  question String @db.Text
+  answer   String @db.Text
   order    Int    @default(0)
 }
 
@@ -153,7 +154,7 @@ model Faq {
 model InfoPage {
   slug      String   @id
   title     String
-  body      String   @default("")
+  body      String   @default("") @db.Text
   updatedAt DateTime @updatedAt
 }
 
@@ -162,7 +163,7 @@ model Announcement {
   id            String   @id @default(cuid())
   year          Int
   title         String
-  body          String   @default("") // teks custom admin (opsional)
+  body          String   @default("") @db.Text
   competitionId String? // snapshot pilihan lomba; bebas null utk pengumuman umum
   published     Boolean  @default(true)
   createdAt     DateTime @default(now())
@@ -178,7 +179,7 @@ model Winner {
   place           Int // 1 | 2 | 3
   participantName String
   school          String
-  note            String?
+  note            String?  @db.Text
 
   @@index([announcementId, place])
 }
