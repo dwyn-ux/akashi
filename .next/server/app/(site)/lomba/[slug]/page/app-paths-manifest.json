@@ -1,0 +1,3 @@
+{
+  "/(site)/lomba/[slug]/page": "app/(site)/lomba/[slug]/page.js"
+}

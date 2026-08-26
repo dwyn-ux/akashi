@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+  // ponytail: target linux utk standalone build Windows -> shared hosting
+  // (CloudLinux/RHEL + Debian). Trim sisakan 1 target sesuai OS server.
+  binaryTargets = ["native", "debian-openssl-3.0.x", "rhel-openssl-1.1.x", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("ADMIN") // SUPER_ADMIN | ADMIN | OPERATOR
+  createdAt    DateTime @default(now())
+}
+
+model Setting {
+  key   String @id
+  value String @db.Text
+}
+
+model Competition {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  name          String
+  category      String   @default("Akademik")
+  level         String   @default("SD")
+  description   String   @default("") @db.Text
+  minAge        Int?
+  maxAge        Int?
+  gradeClass    String?
+  quota         Int      @default(0)
+  fee           Int      @default(0)
+  location      String?
+  scheduleText  String?
+  duration      String?
+  status        String   @default("DRAFT")
+  coverUrl      String?
+  teamSize      Int      @default(1)
+  prize1        String?
+  prize2        String?
+  prize3        String?
+  prizeExtra    String?
+  requirements  String?  @db.Text
+  rules         String?  @db.Text
+  requiredDocs  String?  @db.Text
+  contactPerson String?
+  createdAt     DateTime @default(now())
+  registrations Registration[]
+
+  @@index([status])
+}
+
+model Participant {
+  id          String   @id @default(cuid())
+  nisn        String
+  fullName    String
+  gender      String // L | P
+  birthPlace  String
+  birthDate   DateTime
+  school      String
+  gradeClass  String
+  address     String   @db.Text
+  whatsapp    String
+  email       String?
+  guardian    String
+  guardianRel String
+  guardianWa  String
+  createdAt   DateTime @default(now())
+  registrations Registration[]
+
+  @@index([school])
+  @@index([fullName])
+}
+
+model Registration {
+  id             String   @id @default(cuid())
+  regNumber      String   @unique
+  status         String   @default("PENDING") // PENDING|VERIFIED|REJECTED|LOLOS|FINAL|SELESAI
+  paymentStatus  String   @default("NONE") // NONE|UNPAID|PAID
+  adminNote      String?  @db.Text
+  extraChoice    String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  participantId  String
+  participant    Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  competitionId  String
+  competition    Competition @relation(fields: [competitionId], references: [id], onDelete: Cascade)
+  documents      RegistrationDocument[]
+  members        RegistrationMember[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([competitionId])
+}
+
+model RegistrationDocument {
+  id             String @id @default(cuid())
+  registrationId String
+  registration   Registration @relation(fields: [registrationId], references: [id], onDelete: Cascade)
+  docType        String
+  fileName       String
+  filePath       String   @db.Text
+}
+
+// ponytail: anggota regu 2..N data ringkas; ketua tetap Participant lengkap
+// (kontak/guardian satu regu cukup dari ketua).
+model RegistrationMember {
+  id             String       @id @default(cuid())
+  registrationId String
+  registration   Registration @relation(fields: [registrationId], references: [id], onDelete: Cascade)
+  fullName       String
+  nisn           String
+  gender         String // L | P
+  birthPlace     String
+  birthDate      DateTime
+  school         String
+  gradeClass     String
+
+  @@index([registrationId])
+}
+
+model Schedule {
+  id    String   @id @default(cuid())
+  title String
+  date  DateTime
+  note  String?  @db.Text
+}
+
+model Activity {
+  id          String    @id @default(cuid())
+  name        String
+  description String    @default("") @db.Text
+  imageUrl    String?
+  date        DateTime?
+  timeText    String?
+  location    String?
+}
+
+model Faq {
+  id       String @id @default(cuid())
+  question String @db.Text
+  answer   String @db.Text
+  order    Int    @default(0)
+}
+
+// Halaman info yang diedit admin: juknis, dokumentasi, dll.
+model InfoPage {
+  slug      String   @id
+  title     String
+  body      String   @default("") @db.Text
+  updatedAt DateTime @updatedAt
+}
+
+// Pengumuman hasil lomba per tahun; menjadi sumber page /juara.
+model Announcement {
+  id            String   @id @default(cuid())
+  year          Int
+  title         String
+  body          String   @default("") @db.Text
+  competitionId String? // snapshot pilihan lomba; bebas null utk pengumuman umum
+  published     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  winners       Winner[]
+
+  @@index([published, year])
+}
+
+model Winner {
+  id              String       @id @default(cuid())
+  announcementId  String
+  announcement    Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  place           Int // 1 | 2 | 3
+  participantName String
+  school          String
+  note            String?  @db.Text
+
+  @@index([announcementId, place])
+}

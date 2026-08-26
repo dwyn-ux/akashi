@@ -1,0 +1,139 @@
+{
+  "app": {
+    "[project]/src/app/(site)/[info]/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/cek-pendaftaran/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/daftar/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/faq/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/jadwal/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/juara/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/kegiatan/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/kontak/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/lomba/[slug]/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/lomba/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/pengumuman/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/syarat/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/(site)/tentang/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/_not-found/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/dashboard/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/faq/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/hadiah/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/jadwal/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/juknis/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/kegiatan/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/kop-surat/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/lomba/[id]/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/lomba/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/lomba/tambah/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/pengaturan/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/pengguna/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/pengumuman/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/peserta/[id]/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/(panel)/peserta/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/login/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/admin/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ],
+    "[project]/src/app/kartu/[reg]/page": [
+      "static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2",
+      "static/media/6bd983bd58a87a3d-s.p.1hey5yyym6mz_.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

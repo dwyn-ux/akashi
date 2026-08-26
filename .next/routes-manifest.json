@@ -1,0 +1,300 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin/lomba/[id]",
+      "regex": "^/admin/lomba/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/lomba/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/admin/peserta/[id]",
+      "regex": "^/admin/peserta/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin/peserta/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/docs/[id]",
+      "regex": "^/api/admin/docs/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/docs/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/kartu/[reg]",
+      "regex": "^/kartu/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPreg": "nxtPreg"
+      },
+      "namedRegex": "^/kartu/(?<nxtPreg>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/kartu/[reg]/pdf",
+      "regex": "^/kartu/([^/]+?)/pdf(?:/)?$",
+      "routeKeys": {
+        "nxtPreg": "nxtPreg"
+      },
+      "namedRegex": "^/kartu/(?<nxtPreg>[^/]+?)/pdf(?:/)?$"
+    },
+    {
+      "page": "/lomba/[slug]",
+      "regex": "^/lomba/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/lomba/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[info]",
+      "regex": "^/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPinfo": "nxtPinfo"
+      },
+      "namedRegex": "^/(?<nxtPinfo>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/dashboard",
+      "regex": "^/admin/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/dashboard(?:/)?$"
+    },
+    {
+      "page": "/admin/faq",
+      "regex": "^/admin/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/faq(?:/)?$"
+    },
+    {
+      "page": "/admin/hadiah",
+      "regex": "^/admin/hadiah(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/hadiah(?:/)?$"
+    },
+    {
+      "page": "/admin/jadwal",
+      "regex": "^/admin/jadwal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/jadwal(?:/)?$"
+    },
+    {
+      "page": "/admin/juknis",
+      "regex": "^/admin/juknis(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/juknis(?:/)?$"
+    },
+    {
+      "page": "/admin/kegiatan",
+      "regex": "^/admin/kegiatan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/kegiatan(?:/)?$"
+    },
+    {
+      "page": "/admin/kop-surat",
+      "regex": "^/admin/kop\\-surat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/kop\\-surat(?:/)?$"
+    },
+    {
+      "page": "/admin/login",
+      "regex": "^/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/login(?:/)?$"
+    },
+    {
+      "page": "/admin/lomba",
+      "regex": "^/admin/lomba(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/lomba(?:/)?$"
+    },
+    {
+      "page": "/admin/lomba/tambah",
+      "regex": "^/admin/lomba/tambah(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/lomba/tambah(?:/)?$"
+    },
+    {
+      "page": "/admin/pengaturan",
+      "regex": "^/admin/pengaturan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/pengaturan(?:/)?$"
+    },
+    {
+      "page": "/admin/pengguna",
+      "regex": "^/admin/pengguna(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/pengguna(?:/)?$"
+    },
+    {
+      "page": "/admin/pengumuman",
+      "regex": "^/admin/pengumuman(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/pengumuman(?:/)?$"
+    },
+    {
+      "page": "/admin/peserta",
+      "regex": "^/admin/peserta(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/peserta(?:/)?$"
+    },
+    {
+      "page": "/api/admin/export",
+      "regex": "^/api/admin/export(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/export(?:/)?$"
+    },
+    {
+      "page": "/cek-pendaftaran",
+      "regex": "^/cek\\-pendaftaran(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cek\\-pendaftaran(?:/)?$"
+    },
+    {
+      "page": "/daftar",
+      "regex": "^/daftar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/daftar(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/jadwal",
+      "regex": "^/jadwal(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jadwal(?:/)?$"
+    },
+    {
+      "page": "/juara",
+      "regex": "^/juara(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/juara(?:/)?$"
+    },
+    {
+      "page": "/kegiatan",
+      "regex": "^/kegiatan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kegiatan(?:/)?$"
+    },
+    {
+      "page": "/kontak",
+      "regex": "^/kontak(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kontak(?:/)?$"
+    },
+    {
+      "page": "/lomba",
+      "regex": "^/lomba(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/lomba(?:/)?$"
+    },
+    {
+      "page": "/pengumuman",
+      "regex": "^/pengumuman(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pengumuman(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/syarat",
+      "regex": "^/syarat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/syarat(?:/)?$"
+    },
+    {
+      "page": "/tentang",
+      "regex": "^/tentang(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tentang(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

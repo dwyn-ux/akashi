@@ -1,0 +1,16 @@
+{
+  "node": {
+    "603cfefa4e6481475d0533bd1ce2ba0349954e748f": {
+      "workers": {
+        "app/(site)/daftar/page": {
+          "moduleId": 68405,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "submitRegistration",
+      "filename": "src/app/(site)/daftar/actions.ts"
+    }
+  },
+  "edge": {}
+}

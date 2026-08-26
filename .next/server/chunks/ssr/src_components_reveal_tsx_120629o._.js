@@ -1,0 +1,3 @@
+module.exports=[5114,a=>{"use strict";var b=a.i(87924),c=a.i(72131);a.s(["Reveal",0,function({children:a,delay:d=0,className:e=""}){let f=(0,c.useRef)(null);return(0,c.useEffect)(()=>{let a=f.current;if(!a)return;let b=new IntersectionObserver(([c])=>{c.isIntersecting&&(a.classList.add("is-in"),b.disconnect())},{threshold:.15});return b.observe(a),()=>b.disconnect()},[]),(0,b.jsx)("div",{ref:f,className:`reveal ${e}`,style:d?{transitionDelay:`${d}ms`}:void 0,children:a})}])}];
+
+//# sourceMappingURL=src_components_reveal_tsx_120629o._.js.map

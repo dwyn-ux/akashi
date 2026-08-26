@@ -1,0 +1,49 @@
+{
+  "node": {
+    "0073dd14ce3ac9d85264ebd91b408f308e334d93a0": {
+      "workers": {
+        "app/admin/(panel)/hadiah/page": {
+          "moduleId": 7077,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "logoutAction",
+      "filename": "src/app/admin/auth-actions.ts"
+    },
+    "40cbf85bf9ab31da8d09ceb9680e725b260a5e99a0": {
+      "workers": {
+        "app/admin/(panel)/hadiah/page": {
+          "moduleId": 7077,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "requireRole",
+      "filename": "src/app/admin/auth-actions.ts"
+    },
+    "608a9e6bada574c7fc1c52c798d61c9b191f656b84": {
+      "workers": {
+        "app/admin/(panel)/hadiah/page": {
+          "moduleId": 7077,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "loginAction",
+      "filename": "src/app/admin/auth-actions.ts"
+    },
+    "402cc1205a6c1c8346029bb901ed7d9f0631ddf0a6": {
+      "workers": {
+        "app/admin/(panel)/hadiah/page": {
+          "moduleId": 7077,
+          "async": false,
+          "codeHash": null
+        }
+      },
+      "exportedName": "$$RSC_SERVER_ACTION_0",
+      "filename": "src/app/admin/(panel)/hadiah/page.tsx"
+    }
+  },
+  "edge": {}
+}

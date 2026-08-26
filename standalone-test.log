@@ -1,0 +1,147 @@
+▲ Next.js 16.3.3
+- Local:         http://localhost:3100
+- Network:       http://0.0.0.0:3100
+✓ Ready in 0ms
+✓ Running next.config took 16ms
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async Module.h [as generateMetadata] (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:737) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '1218048497'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async i (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1112) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '1016323558'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async h (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\_1e2vkuz._.js:1:5066) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '3545807713'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async t (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\src_1j8k_pi._.js:1:1679) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '3567652105'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async Module.h [as generateMetadata] (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:737) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '1218048497'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async i (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1112) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '1016323558'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async h (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\_1e2vkuz._.js:1:5066) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '3545807713'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.infoPage.findUnique()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async i (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__0xaoi-x._.js:1:4633) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '176075937'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async Module.h [as generateMetadata] (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:737) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '1218048497'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.competition.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async k (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__00yidev._.js:1:4132) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '2048223128'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async i (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1112) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '1016323558'
+}
+⨯ Error [PrismaClientInitializationError]: 
+Invalid `prisma.setting.findMany()` invocation:
+
+
+Error querying the database: Error code 14: Unable to open the database file
+    at async b (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\[root-of-the-server]__004nous._.js:1:1701)
+    at async h (D:\PRIVATE FAHMI\Claude\akashi\akashiq\deploy\.next\server\chunks\ssr\_1e2vkuz._.js:1:5066) {
+  clientVersion: '6.19.3',
+  errorCode: undefined,
+  retryable: undefined,
+  digest: '3545807713'
+}

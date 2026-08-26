@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,15174,t=>{"use strict";var o=t.i(43476);t.s(["PrintButton",0,function(){return(0,o.jsx)("button",{onClick:()=>window.print(),className:"rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 px-5 py-2.5 text-sm font-bold text-white",children:"Cetak"})}])}]);
