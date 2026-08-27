@@ -1,10 +1,19 @@
+Options -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    # Forward all requests to public/
-    RewriteRule ^(.*)$ public/$1 [L]
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
+    # Also rewrite root
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
 </IfModule>
 
-# Deny direct access to sensitive files if above fails
+# Block sensitive files
 <FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(composer\.|package|vite\.config|artisan)">
     Require all denied
 </FilesMatch>
