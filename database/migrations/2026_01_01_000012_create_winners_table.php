@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('winners', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('announcement_id')->constrained('announcements')->cascadeOnDelete()->index();
+            $table->foreignId('announcement_id')->constrained('announcements')->cascadeOnDelete();
             $table->unsignedTinyInteger('place')->index();
             $table->string('participant_name');
             $table->string('school');

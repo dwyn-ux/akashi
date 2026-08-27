@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('admin_note')->nullable();
             $table->string('extra_choice')->nullable();
             $table->foreignId('participant_id')->constrained('participants')->cascadeOnDelete();
-            $table->foreignId('competition_id')->constrained('competitions')->cascadeOnDelete()->index();
+            $table->foreignId('competition_id')->constrained('competitions')->cascadeOnDelete();
             $table->timestamps();
         });
     }

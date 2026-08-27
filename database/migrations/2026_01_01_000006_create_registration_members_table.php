@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('registration_members', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('registration_id')->constrained('registrations')->cascadeOnDelete()->index();
+            $table->foreignId('registration_id')->constrained('registrations')->cascadeOnDelete();
             $table->string('full_name');
             $table->string('nisn');
             $table->string('gender');
