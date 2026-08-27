@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $competitions = Competition::whereIn('status', ['OPEN', 'CLOSED'])->latest()->get();
-        $activities = Activity::latest()->limit(6)->get();
+        $activities = Activity::orderByDesc('id')->limit(6)->get();
         $schedules = Schedule::orderBy('date')->limit(10)->get();
         $faqs = Faq::orderBy('order')->get();
         $finished = ! Competition::where('status', 'OPEN')->exists();

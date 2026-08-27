@@ -10,7 +10,7 @@ class ActivityController extends Controller
 {
     public function index()
     {
-        $activities = Activity::latest()->paginate(15);
+        $activities = Activity::orderByDesc('id')->paginate(15);
         $kegiatans = $activities;
 
         return view('admin.kegiatan.index', compact('activities', 'kegiatans'));
