@@ -34,10 +34,14 @@
                     <div class="absolute -top-10 -right-10 w-32 h-32 bg-accent-400 rounded-full blur-2xl"></div>
                 </div>
                 <div class="relative flex items-center gap-3">
-                    <div class="w-11 h-11 bg-accent-500 rounded-xl flex items-center justify-center font-extrabold text-lg">A</div>
+                    @if(!empty($settings['site_logo']))
+                        <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-11 h-11 rounded-xl object-contain bg-white/10">
+                    @else
+                        <div class="w-11 h-11 bg-accent-500 rounded-xl flex items-center justify-center font-extrabold text-lg">A</div>
+                    @endif
                     <div>
-                        <div class="font-bold text-lg leading-tight">AKASHI 2026</div>
-                        <div class="text-purple-300 text-xs">Ajang Kreasi Ashidiq &bull; SMP Muhammadiyah Unggulan Ashidiq</div>
+                        <div class="font-bold text-lg leading-tight">{{ $settings['event_name'] ?? 'AKASHI 2026' }}</div>
+                        <div class="text-purple-300 text-xs">Ajang Kreasi Ashidiq &bull; {{ $settings['school_name'] ?? 'SMP Muhammadiyah Unggulan Ashidiq' }}</div>
                     </div>
                 </div>
             </div>

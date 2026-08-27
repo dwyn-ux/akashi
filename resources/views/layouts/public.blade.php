@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'AKASHI 2026') — Ajang Kreasi Ashidiq</title>
+    <link rel="icon" type="image/x-icon" href="{{ !empty($settings['favicon']) ? asset('storage/' . $settings['favicon']) : asset('favicon.ico') }}">
     <meta name="description" content="{{ $settings['site_description'] ?? 'Ajang Kreasi Ashidiq 2026 — Lomba, Festival, dan Kompetisi untuk Siswa SMP Muhammadiyah Unggulan Ashidiq' }}">
     @yield('head')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,7 +29,11 @@
             <div class="flex items-center justify-between h-[68px] lg:h-[72px]">
                 {{-- Logo left --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0">
-                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-extrabold text-[15px] tracking-tight">A</div>
+                    @if(!empty($settings['site_logo']))
+                        <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-10 h-10 rounded-lg object-contain">
+                    @else
+                        <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-extrabold text-[15px] tracking-tight">A</div>
+                    @endif
                     <div class="hidden sm:block leading-none">
                         <div class="font-extrabold text-[17px] tracking-tight text-navy">AKASHI <span class="text-primary">2026</span></div>
                         <div class="text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">Ajang Kreasi Ashidiq</div>
@@ -94,7 +99,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <a href="{{ route('home') }}" class="flex items-center gap-2.5">
-                        <div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white font-extrabold text-sm">A</div>
+                        @if(!empty($settings['site_logo']))
+                            <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-9 h-9 rounded-lg object-contain">
+                        @else
+                            <div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white font-extrabold text-sm">A</div>
+                        @endif
                         <span class="font-extrabold tracking-tight text-navy">AKASHI <span class="text-primary">2026</span></span>
                     </a>
                     <p class="text-sm text-muted-foreground leading-relaxed mt-3 max-w-[28ch]">Ajang Kreasi Ashidiq — kompetisi dan festival untuk siswa SMP Muhammadiyah Unggulan Ashidiq.</p>

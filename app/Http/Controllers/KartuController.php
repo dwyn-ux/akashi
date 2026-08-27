@@ -8,7 +8,7 @@ class KartuController extends Controller
 {
     public function show(string $regNumber)
     {
-        $registration = Registration::with(['participant', 'competition'])
+        $registration = Registration::with(['participant', 'competition', 'members'])
             ->where('reg_number', $regNumber)
             ->firstOrFail();
 

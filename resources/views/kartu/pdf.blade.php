@@ -7,27 +7,39 @@
     @page { margin: 20px 25px; size: A4; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: DejaVu Sans, Helvetica, sans-serif; font-size: 11px; color: #1f2937; }
-    .header { background: #4c1d95; color: #fff; padding: 14px 20px; border-radius: 0; }
+    .header { background: #5425D8; color: #fff; padding: 14px 20px; }
+    .header-row { display: flex; align-items: center; gap: 12px; }
+    .header-logo { width: 48px; height: 48px; border-radius: 8px; object-fit: contain; background: rgba(255,255,255,0.15); }
+    .header-logo-placeholder { width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; color: #fff; }
     .header-title { font-size: 16px; font-weight: bold; }
     .header-sub { font-size: 9px; color: #c4b5fd; margin-top: 2px; }
     .reg-box { background: #ecfdf5; border: 1px solid #a7f3d0; text-align: center; padding: 12px; }
     .reg-label { font-size: 8px; color: #047857; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; }
-    .reg-number { font-size: 20px; font-weight: bold; color: #4c1d95; letter-spacing: 1px; margin-top: 4px; }
+    .reg-number { font-size: 20px; font-weight: bold; color: #5425D8; letter-spacing: 1px; margin-top: 4px; }
     .section { padding: 10px 16px; }
     .section-title { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; margin-bottom: 8px; }
     .row { display: table; width: 100%; padding: 4px 0; }
     .row-label { display: table-cell; width: 45%; color: #6b7280; font-size: 10px; }
-    .row-value { display: table-cell; width: 55%; text-align: right; font-weight: 600; color: #1e1b4b; font-size: 10px; }
+    .row-value { display: table-cell; width: 55%; text-align: right; font-weight: 600; color: #11152F; font-size: 10px; }
     .divider { border-top: 1px solid #e5e7eb; margin: 0 16px; }
-    .info-box { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 10px 14px; margin: 10px 16px; }
+    .info-box { background: #F1EEFF; border: 1px solid #ddd6fe; border-radius: 8px; padding: 10px 14px; margin: 10px 16px; }
     .footer { background: #f9fafb; border-top: 1px solid #e5e7eb; text-align: center; padding: 10px; font-size: 8px; color: #9ca3af; }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="header-title">AKASHI 2026</div>
-    <div class="header-sub">Ajang Kreasi Ashidiq &bull; SMP Muhammadiyah Unggulan Ashidiq</div>
+    <div class="header-row">
+        @if(!empty($logoBase64))
+            <img src="{{ $logoBase64 }}" class="header-logo" alt="Logo">
+        @else
+            <div class="header-logo-placeholder">A</div>
+        @endif
+        <div>
+            <div class="header-title">{{ $settings['event_name'] ?? 'AKASHI 2026' }}</div>
+            <div class="header-sub">Ajang Kreasi Ashidiq &bull; {{ $settings['school_name'] ?? 'SMP Muhammadiyah Unggulan Ashidiq' }}</div>
+        </div>
+    </div>
 </div>
 
 <div class="reg-box">
