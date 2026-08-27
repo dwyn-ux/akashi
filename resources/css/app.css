@@ -4,105 +4,111 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    /* AKASHI brand scale — keep legacy primary-*/ /* accent-* utilities working */
-    --color-primary-50: #faf5ff;
-    --color-primary-100: #f3e8ff;
-    --color-primary-200: #e9d5ff;
-    --color-primary-300: #d8b4fe;
-    --color-primary-400: #c084fc;
-    --color-primary-500: #a855f7;
-    --color-primary-600: #9333ea;
-    --color-primary-700: #7c3aed;
-    --color-primary-800: #6d28d9;
-    --color-primary-900: #5b21b6;
-    --color-primary-950: #3b0764;
-    --color-accent-50: #ecfeff;
-    --color-accent-100: #cffafe;
-    --color-accent-200: #a5f3fc;
-    --color-accent-300: #67e8f9;
-    --color-accent-400: #22d3ee;
-    --color-accent-500: #06b6d4;
-    --color-accent-600: #0891b2;
-    --color-accent-700: #0e7490;
-    --color-accent-800: #155e75;
-    --color-accent-900: #164e63;
+    /* AKASHI Clean Competition palette */
+    --color-navy: #11152F;
+    --color-primary-50: #F1EEFF;
+    --color-primary-100: #E3D8FF;
+    --color-primary-200: #C5B3FF;
+    --color-primary-300: #A48AFF;
+    --color-primary-400: #7E5AFF;
+    --color-primary-500: #5425D8;
+    --color-primary-600: #4A20BE;
+    --color-primary-700: #3D1B9A;
+    --color-primary-800: #2E156E;
+    --color-primary-900: #231052;
+    --color-primary-950: #11152F;
+    --color-gold-50: #FFF4D6;
+    --color-gold-100: #FFEBB3;
+    --color-gold-400: #F5C518;
+    --color-gold-500: #F2A900;
+    --color-gold-600: #C98200;
+    --color-gold-700: #A66E00;
+    /* legacy accent compat */
+    --color-accent-50: #F1EEFF;
+    --color-accent-100: #E3D8FF;
+    --color-accent-200: #C5B3FF;
+    --color-accent-300: #A48AFF;
+    --color-accent-400: #7E5AFF;
+    --color-accent-500: #6D42E8;
+    --color-accent-600: #5425D8;
+    --color-accent-700: #3D1B9A;
+    --color-accent-800: #2E156E;
+    --color-accent-900: #231052;
 }
 
-/* ── shadcn violet theme ── */
+/* ── shadcn Clean Competition theme ── */
 @layer base {
     :root {
         --background: 0 0% 100%;
-        --foreground: 262 30% 14%;
+        --foreground: 233 42% 13%;
         --card: 0 0% 100%;
-        --card-foreground: 262 30% 14%;
+        --card-foreground: 233 42% 13%;
         --popover: 0 0% 100%;
-        --popover-foreground: 262 30% 14%;
-        /* violet primary — AKASHI brand */
-        --primary: 262 83% 58%;
+        --popover-foreground: 233 42% 13%;
+        --primary: 256 71% 50%;
         --primary-foreground: 0 0% 98%;
-        --secondary: 262 20% 96%;
-        --secondary-foreground: 262 30% 14%;
-        --muted: 262 15% 96%;
-        --muted-foreground: 262 10% 46%;
-        /* cyan accent */
-        --accent: 189 94% 43%;
-        --accent-foreground: 0 0% 98%;
+        --secondary: 240 20% 99%;
+        --secondary-foreground: 233 42% 13%;
+        --muted: 240 14% 96%;
+        --muted-foreground: 233 10% 46%;
+        --accent: 43 100% 47%;
+        --accent-foreground: 233 42% 13%;
         --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 98%;
-        --border: 262 15% 91%;
-        --input: 262 15% 91%;
-        --ring: 262 83% 58%;
-        --radius: 0.75rem;
-        --chart-1: 262 83% 58%;
-        --chart-2: 189 94% 43%;
-        --chart-3: 262 30% 14%;
-        --chart-4: 43 96% 56%;
+        --border: 240 10% 92%;
+        --input: 240 10% 92%;
+        --ring: 256 71% 50%;
+        --radius: 0.5rem;
+        --chart-1: 256 71% 50%;
+        --chart-2: 43 100% 47%;
+        --chart-3: 233 42% 13%;
+        --chart-4: 240 14% 96%;
         --chart-5: 340 75% 55%;
-        --sidebar-background: 263 70% 18%;
-        --sidebar-foreground: 262 20% 96%;
-        --sidebar-primary: 262 83% 58%;
+        --sidebar-background: 233 42% 13%;
+        --sidebar-foreground: 0 0% 98%;
+        --sidebar-primary: 256 71% 50%;
         --sidebar-primary-foreground: 0 0% 98%;
-        --sidebar-accent: 189 94% 43%;
-        --sidebar-accent-foreground: 0 0% 98%;
-        --sidebar-border: 263 30% 28%;
-        --sidebar-ring: 262 83% 58%;
+        --sidebar-accent: 43 100% 47%;
+        --sidebar-accent-foreground: 233 42% 13%;
+        --sidebar-border: 233 20% 20%;
+        --sidebar-ring: 256 71% 50%;
+        --gold: 43 100% 47%;
+        --gold-foreground: 233 42% 13%;
+        --gold-light: 45 100% 95%;
     }
 
     .dark {
-        --background: 263 70% 6%;
-        --foreground: 262 20% 96%;
-        --card: 263 50% 10%;
-        --card-foreground: 262 20% 96%;
-        --popover: 263 50% 10%;
-        --popover-foreground: 262 20% 96%;
-        --primary: 263 70% 60%;
-        --primary-foreground: 263 70% 10%;
-        --secondary: 263 30% 18%;
-        --secondary-foreground: 262 20% 96%;
-        --muted: 263 30% 18%;
-        --muted-foreground: 262 15% 64%;
-        --accent: 189 80% 50%;
-        --accent-foreground: 263 70% 6%;
+        --background: 233 42% 7%;
+        --foreground: 0 0% 98%;
+        --card: 233 30% 10%;
+        --card-foreground: 0 0% 98%;
+        --popover: 233 30% 10%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 256 71% 58%;
+        --primary-foreground: 233 42% 13%;
+        --secondary: 233 20% 15%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 233 20% 15%;
+        --muted-foreground: 240 10% 64%;
+        --accent: 43 100% 52%;
+        --accent-foreground: 233 42% 7%;
         --destructive: 0 62% 30%;
         --destructive-foreground: 0 0% 98%;
-        --border: 263 30% 18%;
-        --input: 263 30% 18%;
-        --ring: 263 70% 60%;
-        --chart-1: 263 70% 60%;
-        --chart-2: 189 80% 50%;
-        --chart-3: 43 96% 56%;
-        --chart-4: 262 40% 70%;
-        --chart-5: 340 75% 55%;
-        --sidebar-background: 263 70% 8%;
-        --sidebar-foreground: 262 20% 96%;
-        --sidebar-primary: 263 70% 60%;
-        --sidebar-primary-foreground: 263 70% 6%;
-        --sidebar-accent: 189 80% 50%;
-        --sidebar-accent-foreground: 263 70% 6%;
-        --sidebar-border: 263 30% 18%;
-        --sidebar-ring: 263 70% 60%;
+        --border: 233 20% 15%;
+        --input: 233 20% 15%;
+        --ring: 256 71% 58%;
+        --chart-1: 256 71% 58%;
+        --chart-2: 43 100% 52%;
+        --sidebar-background: 233 42% 7%;
+        --sidebar-foreground: 0 0% 98%;
+        --sidebar-primary: 256 71% 58%;
+        --sidebar-primary-foreground: 233 42% 7%;
+        --sidebar-accent: 43 100% 52%;
+        --sidebar-accent-foreground: 233 42% 7%;
+        --sidebar-border: 233 20% 15%;
+        --sidebar-ring: 256 71% 58%;
     }
 }
 
@@ -114,9 +120,26 @@
         @apply bg-background text-foreground antialiased;
         font-feature-settings: 'rlig' 1, 'calt' 1;
     }
+    h1, h2, h3, h4 {
+        @apply tracking-tight;
+    }
 }
 
-/* Compat: map shadcn tokens to Tailwind v4 @theme for legacy primary-*/ 
+/* Subtle competition texture for white backgrounds */
+.bg-texture {
+    background-color: hsl(var(--background));
+    background-image:
+        radial-gradient(at 15% 20%, hsl(var(--primary) / 0.03) 0px, transparent 50%),
+        radial-gradient(at 85% 15%, hsl(var(--gold) / 0.04) 0px, transparent 40%),
+        radial-gradient(at 50% 80%, hsl(var(--primary) / 0.02) 0px, transparent 60%);
+}
+.texture-trophy {
+    position: absolute;
+    color: hsl(var(--primary) / 0.04);
+    pointer-events: none;
+    user-select: none;
+}
+
 @theme inline {
     --color-background: hsl(var(--background));
     --color-foreground: hsl(var(--foreground));
@@ -137,6 +160,8 @@
     --color-border: hsl(var(--border));
     --color-input: hsl(var(--input));
     --color-ring: hsl(var(--ring));
+    --color-gold: hsl(var(--gold));
+    --color-gold-foreground: hsl(var(--gold-foreground));
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);

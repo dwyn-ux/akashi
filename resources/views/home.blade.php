@@ -4,96 +4,166 @@
 
 @section('content')
 
-{{-- HERO — contained 2-kolom, tidak full-bleed --}}
-<section class="py-8 sm:py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="rounded-[2rem] bg-gradient-to-br from-primary-950 via-primary-900 to-violet-800 text-white overflow-hidden relative">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute -top-20 -right-20 w-80 h-80 bg-accent-400 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-fuchsia-400 rounded-full blur-3xl"></div>
+{{-- HERO — Clean Competition, white dominant, 2-col --}}
+<section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-16">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            {{-- LEFT --}}
+            <div>
+                <div class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-50 px-3 py-1 text-xs font-semibold tracking-wide text-primary">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+                    Kompetisi Pelajar 2026 — SMP Muhammadiyah Unggulan Ashidiq
+                </div>
+
+                <h1 class="mt-5 font-extrabold tracking-tight leading-[0.95] text-navy">
+                    <span class="block text-3xl sm:text-4xl lg:text-[44px]">Ajang Kreasi</span>
+                    <span class="block text-3xl sm:text-4xl lg:text-[44px] text-primary">Ashidiq 2026</span>
+                </h1>
+
+                <p class="mt-3 text-base font-semibold text-navy">Tunjukkan Bakatmu, Raih Prestasimu!</p>
+
+                <p class="mt-3 text-sm leading-relaxed text-muted-foreground max-w-[52ch]">
+                    Kompetisi dan festival untuk siswa SMP Muhammadiyah Unggulan Ashidiq. Saatnya generasi muda unjuk kreativitas, kompetensi dan sportivitas menuju masa depan yang lebih baik.
+                </p>
+
+                <div class="mt-5 flex flex-wrap items-center gap-3 text-sm">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-medium text-foreground">
+                        <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                        16 September 2026
+                    </span>
+                    <span class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-medium text-foreground">
+                        <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                        SMP Muhammadiyah Unggulan Ashidiq
+                    </span>
+                </div>
+
+                <div class="mt-7 flex flex-wrap gap-3">
+                    @if($finished)
+                        <a href="{{ route('juara.index') }}" class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
+                            Lihat Para Juara
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12a2.25 2.25 0 002.25 2.25h9A2.25 2.25 0 0019.5 18V6"/></svg>
+                        </a>
+                        <a href="{{ route('juknis.show') }}" class="inline-flex h-10 items-center justify-center rounded-md border border-border bg-white px-5 text-sm font-medium hover:bg-muted transition-colors">Lihat Juknis</a>
+                    @else
+                        <a href="{{ route('daftar.index') }}" class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
+                            Daftar Sekarang
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
+                        </a>
+                        <a href="{{ route('juknis.show') }}" class="inline-flex h-10 items-center justify-center rounded-md border border-border bg-white px-5 text-sm font-medium hover:bg-muted transition-colors">Lihat Juknis</a>
+                    @endif
+                </div>
             </div>
-            <div class="relative grid lg:grid-cols-[1.15fr_0.85fr] gap-8 p-7 sm:p-10 lg:p-12 items-center">
-                {{-- Copy --}}
-                <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs font-medium text-accent-200 mb-5">
-                        <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
-                        @if($finished) AKASHI 2026 · Telah Selesai @else AKASHI 2026 · Edisi Perdana @endif
+
+            {{-- RIGHT — trophy visual + countdown --}}
+            <div class="lg:pl-6">
+                {{-- Trophy visual — clean flat editorial --}}
+                <div class="relative rounded-xl border border-border bg-white p-6 sm:p-8 overflow-hidden">
+                    {{-- subtle bg texture inside card --}}
+                    <div class="absolute inset-0 pointer-events-none">
+                        <svg class="absolute -top-6 -right-6 w-24 h-24 text-primary/[0.06]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/></svg>
+                        <svg class="absolute -bottom-4 -left-4 w-20 h-20 text-gold/[0.08]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="6"/><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/></svg>
                     </div>
-                    <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.1]">
-                        Ajang Kreasi<br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-300 to-cyan-200">Ashidiq 2026</span>
-                    </h1>
-                    <p class="text-sm sm:text-[15px] text-violet-200 mt-4 leading-relaxed max-w-[46ch]">
-                        {{ $settings['site_description'] ?? 'Kompetisi dan festival untuk siswa SMP Muhammadiyah Unggulan Ashidiq. Tunjukkan bakatmu, raih prestasimu!' }}
-                    </p>
-                    <div class="flex flex-wrap items-center gap-2 mt-5 text-xs">
-                        @if($settings['event_date'] ?? null)
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-violet-100">
-                            <svg class="w-3.5 h-3.5 text-accent-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-                            {{ \Carbon\Carbon::parse($settings['event_date'])->translatedFormat('d F Y') }}
-                        </span>
-                        @endif
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-violet-100">
-                            <svg class="w-3.5 h-3.5 text-accent-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                            SMP Muhammadiyah Unggulan Ashidiq
-                        </span>
-                    </div>
-                    <div class="flex flex-wrap gap-3 mt-7">
-                        @if($finished)
-                            <a href="{{ route('juara.index') }}" class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-white text-primary-900 text-sm font-medium shadow hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white transition-colors">
-                                Lihat Para Juara
-                            </a>
-                            <a href="{{ route('pengumuman.index') }}" class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md border border-white/20 bg-white/10 text-white text-sm font-medium hover:bg-white/15 backdrop-blur transition-colors">Pengumuman</a>
-                        @else
-                            <a href="{{ route('daftar.index') }}" class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md bg-white text-primary-900 text-sm font-medium shadow hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white transition-colors">
-                                Daftar Sekarang
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12a2.25 2.25 0 002.25 2.25h9A2.25 2.25 0 0019.5 18V6"/></svg>
-                            </a>
-                            <a href="{{ route('lomba.index') }}" class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md border border-white/20 bg-white/10 text-white text-sm font-medium hover:bg-white/15 backdrop-blur transition-colors">Jelajahi Lomba</a>
-                        @endif
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-20 h-20 rounded-xl bg-primary-50 border border-primary/10 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+                        </div>
+                        <div class="mt-3 flex items-center gap-2">
+                            <span class="w-6 h-px bg-gold/40"></span>
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+                            <span class="w-6 h-px bg-gold/40"></span>
+                        </div>
+                        <h3 class="mt-2 font-extrabold tracking-tight text-navy">Championship</h3>
+                        <p class="text-xs font-medium tracking-widest uppercase text-muted-foreground">AKASHI 2026</p>
+                        <div class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-gold-50 border border-gold-100 px-3 py-1 text-xs font-semibold text-gold-700">
+                            <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+                            Prestasi · Sportivitas · Kreativitas
+                        </div>
                     </div>
                 </div>
 
-                {{-- Visual / Countdown card --}}
-                <div class="lg:pl-2">
-                    @if(!$finished && ($settings['event_date'] ?? null))
-                    <div class="rounded-2xl bg-white text-foreground border shadow-xl p-6">
-                        <div class="text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-4">Hitung Mundur</div>
-                        <div id="countdown" class="grid grid-cols-4 gap-3">
-                            <div class="rounded-xl bg-primary text-primary-foreground p-3 text-center">
-                                <div id="cd-days" class="text-2xl font-bold leading-none">00</div>
-                                <div class="text-[10px] tracking-widest opacity-80 mt-1">HARI</div>
-                            </div>
-                            <div class="rounded-xl bg-primary text-primary-foreground p-3 text-center">
-                                <div id="cd-hours" class="text-2xl font-bold leading-none">00</div>
-                                <div class="text-[10px] tracking-widest opacity-80 mt-1">JAM</div>
-                            </div>
-                            <div class="rounded-xl bg-primary text-primary-foreground p-3 text-center">
-                                <div id="cd-minutes" class="text-2xl font-bold leading-none">00</div>
-                                <div class="text-[10px] tracking-widest opacity-80 mt-1">MENIT</div>
-                            </div>
-                            <div class="rounded-xl bg-primary text-primary-foreground p-3 text-center">
-                                <div id="cd-seconds" class="text-2xl font-bold leading-none">00</div>
-                                <div class="text-[10px] tracking-widest opacity-80 mt-1">DETIK</div>
-                            </div>
+                {{-- Countdown — white, thin purple border, no shadow --}}
+                @if(!$finished && ($settings['event_date'] ?? null))
+                <div class="mt-4 rounded-xl border border-primary/20 bg-white p-4">
+                    <div class="flex items-center justify-between gap-3 mb-3">
+                        <span class="text-xs font-semibold tracking-widest uppercase text-primary">Hitung Mundur</span>
+                        <span class="inline-flex items-center gap-1.5 rounded-full bg-green-50 border border-green-200 px-2.5 py-1 text-xs font-medium text-green-700">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                            Pendaftaran Dibuka
+                        </span>
+                    </div>
+                    <div id="countdown" class="grid grid-cols-4 gap-2">
+                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
+                            <div id="cd-days" class="text-xl font-extrabold leading-none text-navy">00</div>
+                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">HARI</div>
                         </div>
-                        <div class="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            Pendaftaran masih dibuka
-                            <a href="{{ route('daftar.index') }}" class="ml-auto text-primary font-medium hover:underline">Daftar →</a>
+                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
+                            <div id="cd-hours" class="text-xl font-extrabold leading-none text-navy">00</div>
+                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">JAM</div>
+                        </div>
+                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
+                            <div id="cd-minutes" class="text-xl font-extrabold leading-none text-navy">00</div>
+                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">MENIT</div>
+                        </div>
+                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
+                            <div id="cd-seconds" class="text-xl font-extrabold leading-none text-navy">00</div>
+                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">DETIK</div>
                         </div>
                     </div>
-                    @else
-                    <div class="rounded-2xl bg-white/10 border border-white/15 backdrop-blur p-6">
-                        <div class="w-12 h-12 rounded-xl bg-white text-primary-900 flex items-center justify-center font-extrabold">A</div>
-                        <h3 class="text-white font-semibold mt-4">AKASHI 2026</h3>
-                        <p class="text-sm text-violet-200 mt-1">Festival kreasi, kompetisi, dan gelar karya. Lihat para juara atau pengumuman terbaru.</p>
-                        <div class="flex gap-2 mt-4">
-                            <a href="{{ route('juara.index') }}" class="h-9 px-4 rounded-md bg-white text-primary-900 text-sm font-medium inline-flex items-center">Juara</a>
-                            <a href="{{ route('pengumuman.index') }}" class="h-9 px-4 rounded-md border border-white/20 text-white text-sm font-medium inline-flex items-center">Pengumuman</a>
-                        </div>
+                    <div class="mt-3 text-center text-xs text-muted-foreground">16 September – 30 September 2026</div>
+                </div>
+                @else
+                <div class="mt-4 rounded-xl border border-border bg-white p-4 flex items-center justify-between">
+                    <div>
+                        <div class="text-sm font-semibold text-navy">Pendaftaran Dibuka</div>
+                        <div class="text-xs text-muted-foreground">16 September – 30 September 2026</div>
                     </div>
-                    @endif
+                    <a href="{{ route('daftar.index') }}" class="h-9 px-4 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium">Daftar →</a>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{-- STATS — horizontal, white/off-white, thin separators, no heavy shadow --}}
+<section class="border-y border-border bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border">
+            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
+                <div class="w-10 h-10 rounded-lg bg-primary-50 border border-primary/10 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07"/></svg>
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold tracking-tight text-navy">1000+</div>
+                    <div class="text-xs font-medium text-muted-foreground">Peserta Siap Berkompetisi</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
+                <div class="w-10 h-10 rounded-lg bg-gold-50 border border-gold-100 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/></svg>
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold tracking-tight text-navy">20+</div>
+                    <div class="text-xs font-medium text-muted-foreground">Cabang Lomba Menantang</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
+                <div class="w-10 h-10 rounded-lg bg-primary-50 border border-primary/10 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0"/></svg>
+                </div>
+                <div>
+                    <div class="text-sm font-bold tracking-tight text-navy">Hadiah Menarik</div>
+                    <div class="text-xs font-medium text-muted-foreground">Untuk Juara</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
+                <div class="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div>
+                    <div class="text-sm font-bold tracking-tight text-navy">Fair Play</div>
+                    <div class="text-xs font-medium text-muted-foreground">Sportivitas Terjaga</div>
                 </div>
             </div>
         </div>
@@ -102,36 +172,49 @@
 
 @if(!$finished)
 
-{{-- KENAPA IKUT — 4 cards, contained --}}
-<section class="py-10 sm:py-14">
+{{-- KENAPA IKUT — eyebrow, heading, subheading, 4 cards clean --}}
+<section class="py-12 sm:py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="flex items-end justify-between gap-4 mb-6">
-            <div>
-                <h2 class="text-xl sm:text-2xl font-semibold tracking-tight">Kenapa Ikut AKASHI?</h2>
-                <p class="text-sm text-muted-foreground mt-1">Empat alasan untuk tampil dan bersinar.</p>
-            </div>
+        <div class="max-w-2xl">
+            <div class="text-xs font-semibold tracking-[0.18em] uppercase text-primary">KENAPA IKUT AKASHI?</div>
+            <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-navy">Empat Alasan Untuk Tampil dan Bersinar</h2>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Jangan lewatkan kesempatan untuk mengembangkan potensi dan meraih prestasi terbaikmu!</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            @php $features = [
-                ['Berani Mencoba','Langkah pertama menuju prestasi.','M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z','bg-violet-100 text-violet-700'],
-                ['Berkarya','Wadah berekspresi tanpa batas.','M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z','bg-cyan-100 text-cyan-700'],
-                ['Bersaing','Uji kemampuan secara sportif.','M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871','bg-violet-100 text-violet-700'],
-                ['Bersinar','Bersinar di panggung prestasi.','M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z','bg-cyan-100 text-cyan-700'],
-            ]; @endphp
-            @foreach($features as [$title,$desc,$d,$badge])
-            <div class="rounded-xl border bg-card text-card-foreground shadow-sm p-5 hover:shadow-md transition-shadow">
-                <div class="w-9 h-9 rounded-lg {{ $badge }} flex items-center justify-center mb-3">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="{{ $d }}"/></svg>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="rounded-xl border bg-white p-5">
+                <div class="w-10 h-10 rounded-lg border bg-primary-50 border-primary/10 flex items-center justify-center text-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/></svg>
                 </div>
-                <h3 class="font-medium text-sm">{{ $title }}</h3>
-                <p class="text-sm text-muted-foreground leading-relaxed mt-1">{{ $desc }}</p>
+                <h3 class="mt-4 font-semibold text-sm text-navy">Kembangkan Potensi</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Asah bakat dan kreativitasmu dengan kompetisi yang menantang.</p>
             </div>
-            @endforeach
+            <div class="rounded-xl border bg-white p-5">
+                <div class="w-10 h-10 rounded-lg border bg-gold-50 border-gold-100 flex items-center justify-center text-gold-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+                </div>
+                <h3 class="mt-4 font-semibold text-sm text-navy">Raih Prestasi</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Menjadi yang terbaik dan mendapatkan pengakuan.</p>
+            </div>
+            <div class="rounded-xl border bg-white p-5">
+                <div class="w-10 h-10 rounded-lg border bg-primary-50 border-primary/10 flex items-center justify-center text-primary">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952"/></svg>
+                </div>
+                <h3 class="mt-4 font-semibold text-sm text-navy">Bangun Relasi</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Kenalan dan bertukar inspirasi dengan peserta dari sekolah lain.</p>
+            </div>
+            <div class="rounded-xl border bg-white p-5">
+                <div class="w-10 h-10 rounded-lg border bg-gold-50 border-gold-100 flex items-center justify-center text-gold-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M12 11a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+                </div>
+                <h3 class="mt-4 font-semibold text-sm text-navy">Pengalaman Berharga</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Tumbuh lebih percaya diri dan siap menghadapi tantangan masa depan.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="h-px bg-border"></div></div>
+
 
 {{-- LOMBA — bento: featured + grid --}}
 @if($competitions->count())
@@ -149,8 +232,8 @@
         <div class="grid lg:grid-cols-3 gap-4">
             {{-- Featured --}}
             @if($featuredLomba)
-            <a href="{{ route('lomba.show', $featuredLomba->slug) }}" class="group lg:row-span-2 flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:shadow-md hover:border-primary/20 transition-all">
-                <div class="h-44 lg:h-[220px] bg-gradient-to-br from-primary-900 to-violet-700 relative overflow-hidden flex items-center justify-center">
+            <a href="{{ route('lomba.show', $featuredLomba->slug) }}" class="group lg:row-span-2 flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:border-primary/20 hover:border-primary/20 transition-all">
+                <div class="h-44 lg:h-[220px] bg-primary-50 relative overflow-hidden flex items-center justify-center">
                     @if($featuredLomba->cover_url)
                         <img src="{{ $featuredLomba->cover_url }}" alt="{{ $featuredLomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                     @else
@@ -169,8 +252,8 @@
             {{-- Rest 2x2 + 1 --}}
             <div class="lg:col-span-2 grid sm:grid-cols-2 gap-4">
                 @foreach($rest as $lomba)
-                <a href="{{ route('lomba.show', $lomba->slug) }}" class="group flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:shadow-md hover:border-primary/20 transition-all">
-                    <div class="h-28 bg-gradient-to-br from-primary-900/90 to-violet-700/90 relative overflow-hidden flex items-center justify-center">
+                <a href="{{ route('lomba.show', $lomba->slug) }}" class="group flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:border-primary/20 hover:border-primary/20 transition-all">
+                    <div class="h-28 bg-primary-50 relative overflow-hidden flex items-center justify-center">
                         @if($lomba->cover_url)
                             <img src="{{ $lomba->cover_url }}" alt="{{ $lomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                         @else
@@ -206,7 +289,7 @@
 @if($featured && ($featured->prize_1 || $featured->prize_2 || $featured->prize_3))
 <section class="py-10 sm:py-14">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="rounded-2xl border bg-card shadow-sm p-6 sm:p-8">
+        <div class="rounded-xl border bg-card shadow-sm p-6 sm:p-8">
             <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
                 <div>
                     <h2 class="text-xl font-semibold tracking-tight">Hadiah Pemenang</h2>
@@ -366,7 +449,7 @@
 {{-- CTA — contained card --}}
 <section class="pb-10 sm:pb-14">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="rounded-2xl border bg-primary text-primary-foreground p-7 sm:p-10 text-center relative overflow-hidden">
+        <div class="rounded-xl border bg-primary text-primary-foreground p-7 sm:p-10 text-center relative overflow-hidden">
             <div class="absolute inset-0 opacity-10">
                 <div class="absolute -top-16 -right-16 w-64 h-64 bg-white rounded-full blur-3xl"></div>
             </div>
