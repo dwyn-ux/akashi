@@ -235,7 +235,7 @@
             <a href="{{ route('lomba.show', $featuredLomba->slug) }}" class="group lg:row-span-2 flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:border-primary/20 hover:border-primary/20 transition-all">
                 <div class="h-44 lg:h-[220px] bg-primary-50 relative overflow-hidden flex items-center justify-center">
                     @if($featuredLomba->cover_url)
-                        <img src="{{ $featuredLomba->cover_url }}" alt="{{ $featuredLomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
+                        <img src="{{ asset('storage/' . $featuredLomba->cover_url) }}" alt="{{ $featuredLomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                     @else
                         <svg class="w-14 h-14 text-white/20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871"/></svg>
                     @endif
@@ -255,7 +255,7 @@
                 <a href="{{ route('lomba.show', $lomba->slug) }}" class="group flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:border-primary/20 hover:border-primary/20 transition-all">
                     <div class="h-28 bg-primary-50 relative overflow-hidden flex items-center justify-center">
                         @if($lomba->cover_url)
-                            <img src="{{ $lomba->cover_url }}" alt="{{ $lomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
+                            <img src="{{ asset('storage/' . $lomba->cover_url) }}" alt="{{ $lomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                         @else
                             <svg class="w-10 h-10 text-white/20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3"/></svg>
                         @endif
