@@ -9,7 +9,7 @@
     <div class="bg-green-50 border border-green-200 text-green-700 rounded-2xl p-6 text-center print:hidden">
         <svg class="w-12 h-12 text-green-500 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         <p class="font-semibold text-lg mb-1">{{ session('success') }}</p>
-        <p class="text-sm text-green-600">Kartu peserta sedang diunduh secara otomatis...</p>
+        <p class="text-sm text-green-600">Dialog cetak akan muncul secara otomatis...</p>
     </div>
 </div>
 @endif
@@ -187,7 +187,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
-            window.location.href = '{{ route('kartu.pdf', $registration->reg_number) }}';
+            window.print();
         }, 1500);
     });
 </script>
