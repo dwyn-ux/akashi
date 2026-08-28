@@ -105,6 +105,6 @@ class DaftarController extends Controller
             }
         }
 
-        return redirect()->route('cek-pendaftaran')->with('success', 'Pendaftaran berhasil! Nomor registrasi: '.$regNumber);
+        return redirect()->route('kartu.show', $regNumber)->with('success', 'Pendaftaran berhasil! Nomor registrasi: '.$regNumber);
     }
 }

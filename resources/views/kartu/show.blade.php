@@ -4,6 +4,16 @@
 
 @section('content')
 
+@if(session('success'))
+<div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+    <div class="bg-green-50 border border-green-200 text-green-700 rounded-2xl p-6 text-center print:hidden">
+        <svg class="w-12 h-12 text-green-500 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <p class="font-semibold text-lg mb-1">{{ session('success') }}</p>
+        <p class="text-sm text-green-600">Kartu peserta sedang diunduh secara otomatis...</p>
+    </div>
+</div>
+@endif
+
 <section class="py-8 sm:py-12 print:py-0">
     <div class="max-w-lg mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -173,4 +183,13 @@
         #kartu-peserta { break-inside: avoid; }
     }
 </style>
+@if(session('success'))
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            window.location.href = '{{ route('kartu.pdf', $registration->reg_number) }}';
+        }, 1500);
+    });
+</script>
+@endif
 @endpush
