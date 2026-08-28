@@ -51,15 +51,17 @@
 
                 {{-- CTA right --}}
                 <div class="flex items-center gap-2.5">
-                    @if(!($finished ?? false))
-                        <a href="{{ route('admin.login') }}" class="hidden sm:inline-flex h-9 px-4 items-center justify-center rounded-md border border-border bg-white text-sm font-medium text-foreground hover:bg-muted transition-colors">Masuk</a>
-                        <a href="{{ route('daftar.index') }}" class="inline-flex h-9 px-5 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
-                            Daftar Sekarang
-                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12a2.25 2.25 0 002.25 2.25h9A2.25 2.25 0 0019.5 18V6"/></svg>
-                        </a>
-                    @else
-                        <a href="{{ route('juara.index') }}" class="hidden sm:inline-flex h-9 px-4 items-center justify-center rounded-md border border-border bg-white text-sm font-medium hover:bg-muted transition-colors">Juara</a>
-                        <a href="{{ route('pengumuman.index') }}" class="inline-flex h-9 px-5 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">Pengumuman</a>
+                    @if(!request()->routeIs('kartu.*'))
+                        @if(!($finished ?? false))
+                            <a href="{{ route('admin.login') }}" class="hidden sm:inline-flex h-9 px-4 items-center justify-center rounded-md border border-border bg-white text-sm font-medium text-foreground hover:bg-muted transition-colors">Masuk</a>
+                            <a href="{{ route('daftar.index') }}" class="inline-flex h-9 px-5 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
+                                Daftar Sekarang
+                                <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12a2.25 2.25 0 002.25 2.25h9A2.25 2.25 0 0019.5 18V6"/></svg>
+                            </a>
+                        @else
+                            <a href="{{ route('juara.index') }}" class="hidden sm:inline-flex h-9 px-4 items-center justify-center rounded-md border border-border bg-white text-sm font-medium hover:bg-muted transition-colors">Juara</a>
+                            <a href="{{ route('pengumuman.index') }}" class="inline-flex h-9 px-5 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors">Pengumuman</a>
+                        @endif
                     @endif
                     <button onclick="toggleMobileMenu()" class="lg:hidden w-9 h-9 inline-flex items-center justify-center rounded-md border border-border bg-white hover:bg-muted transition-colors" aria-label="Menu">
                         <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
@@ -78,12 +80,14 @@
                 <a href="{{ route('pengumuman.index') }}" class="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-muted transition-colors">Pengumuman</a>
                 <a href="{{ route('juara.index') }}" class="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-muted transition-colors">Juara</a>
                 <a href="{{ route('kontak.index') }}" class="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-muted transition-colors">Kontak</a>
+                @if(!request()->routeIs('kartu.*'))
                 <div class="pt-2 grid grid-cols-2 gap-2">
                     <a href="{{ route('admin.login') }}" class="h-10 inline-flex items-center justify-center rounded-md border border-border bg-white text-sm font-medium">Masuk</a>
                     @if(!($finished ?? false))
                         <a href="{{ route('daftar.index') }}" class="h-10 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium">Daftar Sekarang</a>
                     @endif
                 </div>
+                @endif
             </div>
         </div>
     </header>
