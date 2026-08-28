@@ -150,7 +150,7 @@
             </div>
             <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
                 <div class="w-10 h-10 rounded-lg bg-primary-50 border border-primary/10 flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0"/></svg>
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
                 </div>
                 <div>
                     <div class="text-sm font-bold tracking-tight text-navy">Hadiah Menarik</div>
@@ -183,7 +183,7 @@
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="rounded-xl border bg-white p-5">
                 <div class="w-10 h-10 rounded-lg border bg-primary-50 border-primary/10 flex items-center justify-center text-primary">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
                 </div>
                 <h3 class="mt-4 font-semibold text-sm text-navy">Kembangkan Potensi</h3>
                 <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Asah bakat dan kreativitasmu dengan kompetisi yang menantang.</p>
@@ -197,14 +197,14 @@
             </div>
             <div class="rounded-xl border bg-white p-5">
                 <div class="w-10 h-10 rounded-lg border bg-primary-50 border-primary/10 flex items-center justify-center text-primary">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952"/></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
                 </div>
                 <h3 class="mt-4 font-semibold text-sm text-navy">Bangun Relasi</h3>
                 <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Kenalan dan bertukar inspirasi dengan peserta dari sekolah lain.</p>
             </div>
             <div class="rounded-xl border bg-white p-5">
                 <div class="w-10 h-10 rounded-lg border bg-gold-50 border-gold-100 flex items-center justify-center text-gold-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M12 11a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75a3 3 0 01-3-3h15a3 3 0 01-3 3m-9 0v-3.375c0-.621-.503-1.125-1.125-1.125H3.375c-.621 0-1.125.503-1.125 1.125v3.375M3.75 21h.008v.008H3.75V21zm0-3.75h.008v.008H3.75V17.25zM20.25 21h.008v.008H20.25V21zm0-3.75h.008v.008H20.25V17.25z"/></svg>
                 </div>
                 <h3 class="mt-4 font-semibold text-sm text-navy">Pengalaman Berharga</h3>
                 <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Tumbuh lebih percaya diri dan siap menghadapi tantangan masa depan.</p>
@@ -376,7 +376,7 @@
             <div class="p-5 grid gap-3">
                 @php
                     $activityIcons = [
-                        'Gelar Karya' => ['bg' => 'bg-violet-100', 'color' => 'text-violet-600', 'icon' => '<path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>', 'src' => 'lucide:palette'],
+                        'Gelar Karya' => ['bg' => 'bg-violet-100', 'color' => 'text-violet-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>', 'src' => 'lucide:palette'],
                         'Talkshow' => ['bg' => 'bg-cyan-100', 'color' => 'text-cyan-600', 'icon' => '<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>', 'src' => 'lucide:book-open'],
                         'Bazar' => ['bg' => 'bg-amber-100', 'color' => 'text-amber-600', 'icon' => '<path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/>', 'src' => 'lucide:store'],
                         'Dolanan' => ['bg' => 'bg-emerald-100', 'color' => 'text-emerald-600', 'icon' => '<rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/>', 'src' => 'lucide:dices'],

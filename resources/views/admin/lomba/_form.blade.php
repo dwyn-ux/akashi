@@ -169,6 +169,23 @@
             </div>
         </div>
 
+        <!-- Gambar Sampul -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Gambar Sampul</h3>
+            <div>
+                @if(!empty($lomba->cover_url))
+                    <div class="mb-3">
+                        <img src="{{ asset('storage/' . $lomba->cover_url) }}" alt="Cover" class="w-full h-40 object-cover rounded-xl border border-gray-200">
+                        <p class="text-xs text-gray-400 mt-1">Gambar saat ini</p>
+                    </div>
+                @endif
+                <label class="block text-sm font-medium text-gray-700 mb-1">Upload Gambar Baru</label>
+                <input type="file" name="cover_image" accept="image/*"
+                       class="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                <p class="text-xs text-gray-400 mt-1">Format: JPG, PNG. Maks 2MB.</p>
+            </div>
+        </div>
+
         <!-- Submit -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <button type="submit" class="w-full bg-primary hover:bg-purple-800 text-white font-semibold py-2.5 rounded-xl transition text-sm shadow-sm">
