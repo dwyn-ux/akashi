@@ -132,7 +132,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border">
             <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
                 <div class="w-10 h-10 rounded-lg bg-primary-50 border border-primary/10 flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07"/></svg>
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128V21a2.25 2.25 0 002.25 2.25h3.75"/><circle cx="10" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-2a4 4 0 014-4h.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"/></svg>
                 </div>
                 <div>
                     <div class="text-xl font-extrabold tracking-tight text-navy">1000+</div>
@@ -141,7 +141,7 @@
             </div>
             <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
                 <div class="w-10 h-10 rounded-lg bg-gold-50 border border-gold-100 flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/></svg>
+                    <svg class="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75a3 3 0 01-3-3h15a3 3 0 01-3 3m-9 0v-3.375c0-.621-.503-1.125-1.125-1.125H3.375c-.621 0-1.125.503-1.125 1.125v3.375M3.75 21h.008v.008H3.75V21zm0-3.75h.008v.008H3.75V17.25zM20.25 21h.008v.008H20.25V21zm0-3.75h.008v.008H20.25V17.25z"/></svg>
                 </div>
                 <div>
                     <div class="text-xl font-extrabold tracking-tight text-navy">20+</div>
@@ -159,7 +159,7 @@
             </div>
             <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
                 <div class="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
                 </div>
                 <div>
                     <div class="text-sm font-bold tracking-tight text-navy">Fair Play</div>
