@@ -76,6 +76,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 
     Route::get('/pengumuman', [AnnouncementController::class, 'index'])->name('admin.pengumuman.index');
     Route::post('/pengumuman', [AnnouncementController::class, 'store'])->name('admin.pengumuman.store');
+    Route::get('/pengumuman/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('admin.pengumuman.edit');
+    Route::put('/pengumuman/{announcement}', [AnnouncementController::class, 'update'])->name('admin.pengumuman.update');
     Route::patch('/pengumuman/{announcement}/toggle', [AnnouncementController::class, 'toggle'])->name('admin.pengumuman.toggle');
     Route::delete('/pengumuman/{announcement}', [AnnouncementController::class, 'destroy'])->name('admin.pengumuman.destroy');
 

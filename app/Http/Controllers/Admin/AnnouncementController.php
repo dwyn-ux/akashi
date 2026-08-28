@@ -47,6 +47,46 @@ class AnnouncementController extends Controller
         return redirect()->route('admin.pengumuman.index')->with('success', 'Pengumuman berhasil ditambahkan.');
     }
 
+    public function edit(Announcement $announcement)
+    {
+        $announcement->load('winners');
+        $lombas = \App\Models\Competition::all();
+
+        return view('admin.pengumuman.edit', compact('announcement', 'lombas'));
+    }
+
+    public function update(Request $request, Announcement $announcement)
+    {
+        $validated = $request->validate([
+            'year' => 'required|integer|min:2020|max:2100',
+            'title' => 'required|string|max:255',
+            'body' => 'nullable|string',
+            'competition_id' => 'nullable|exists:competitions,id',
+            'published' => 'boolean',
+        ]);
+
+        $validated['published'] = $request->boolean('published');
+
+        $announcement->update($validated);
+
+        // Sync winners
+        if ($request->has('winners')) {
+            $announcement->winners()->delete();
+            foreach ($request->input('winners', []) as $winner) {
+                if (! empty($winner['participant_name'])) {
+                    $announcement->winners()->create([
+                        'place' => $winner['place'] ?? 1,
+                        'participant_name' => $winner['participant_name'],
+                        'school' => $winner['school'] ?? '',
+                        'note' => $winner['note'] ?? null,
+                    ]);
+                }
+            }
+        }
+
+        return redirect()->route('admin.pengumuman.index')->with('success', 'Pengumuman berhasil diperbarui.');
+    }
+
     public function toggle(Announcement $announcement)
     {
         $announcement->update(['published' => ! $announcement->published]);
