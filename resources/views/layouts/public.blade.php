@@ -14,7 +14,7 @@
     </style>
     @stack('styles')
 </head>
-<body class="bg-paper text-navy antialiased overflow-x-hidden" style="overflow-y: auto !important; -webkit-overflow-scrolling: touch;">
+<body class="bg-paper text-navy antialiased" style="overflow-x: clip; overflow-y: auto !important; -webkit-overflow-scrolling: touch;">
 
     {{-- NAVBAR — editorial, confident, no SaaS feel --}}
     <header class="sticky top-0 z-50 bg-navy">

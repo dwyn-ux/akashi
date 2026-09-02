@@ -15,7 +15,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen" style="overflow-y: auto !important; -webkit-overflow-scrolling: touch;">
+<body class="bg-gray-100" style="overflow-x: clip; overflow-y: auto !important; min-height: 100vh; -webkit-overflow-scrolling: touch;">
 
     <!-- Mobile Overlay -->
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="toggleSidebar()"></div>
