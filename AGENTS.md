@@ -44,4 +44,18 @@ php artisan boost:install
 ```
 
 Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
+
+---
+
+## Deployment notes
+
+**Vite build must run on local machine, NOT on the production server.**
+The prod server (`akashi.smpmuashidiq.sch.id`) does not have Node.js / npm available, and `npm run build` will fail there.
+
+Workflow:
+1. Make CSS/JS changes locally.
+2. Run `npm run build` locally — outputs to `public/build/assets/*.css|js`.
+3. Commit the new `public/build/assets/*` files together with the source changes.
+4. `git push` — production pulls these built assets directly.
+5. On prod, run only `php artisan optimize:clear` (no npm).
 </laravel-boost-guidelines>
