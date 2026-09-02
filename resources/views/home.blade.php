@@ -666,15 +666,19 @@
 @if(!$finished && ($settings['event_date'] ?? null))
 <script>
 (function(){
-    var target=new Date('{{ $settings["event_date"] }}T23:59:59').getTime();
+    var raw='{{ addslashes($settings["event_date"] ?? "") }}';
+    var target;
+    // Try ISO first, then common formats
+    target = new Date(raw + 'T23:59:59').getTime();
+    if(isNaN(target)) target = new Date(raw).getTime();
+    if(isNaN(target)) return; // no valid date, countdown stays at 00
     function upd(){
         var d=target-Date.now();
         if(d<=0){
-            var ids=['cd-days','cd-hours','cd-minutes','cd-seconds'];
-            for(var i=0;i<ids.length;i++){
-                var el=document.getElementById(ids[i]);
+            ['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(function(id){
+                var el=document.getElementById(id);
                 if(el) el.textContent='00';
-            }
+            });
             return;
         }
         var daysEl=document.getElementById('cd-days');

@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\Competition;
 use App\Models\Faq;
 use App\Models\Schedule;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,8 @@ class HomeController extends Controller
         $schedules = Schedule::orderBy('date')->limit(10)->get();
         $faqs = Faq::orderBy('order')->get();
         $finished = ! Competition::where('status', 'OPEN')->exists();
+        $settings = Setting::pluck('value', 'key')->toArray();
 
-        return view('home', compact('competitions', 'activities', 'schedules', 'faqs', 'finished'));
+        return view('home', compact('competitions', 'activities', 'schedules', 'faqs', 'finished', 'settings'));
     }
 }

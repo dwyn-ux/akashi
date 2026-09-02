@@ -27,34 +27,46 @@
                 <h2 class="text-2xl font-extrabold text-primary-900">{{ $year }}</h2>
             </div>
 
-            <div class="space-y-6">
+            <div class="space-y-4">
                 @foreach($items as $item)
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
-                    <div class="p-6 sm:p-8">
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <h3 class="font-bold text-primary-900 text-lg">{{ $item->title }}</h3>
-                            @if($item->competition)
-                            <span class="px-3 py-1 text-xs font-semibold bg-accent-100 text-accent-700 rounded-lg whitespace-nowrap">{{ $item->competition->name }}</span>
-                            @endif
+                <button onclick="openPengumuman({{ $item->id }})" class="w-full text-left bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all cursor-pointer group">
+                    <div class="p-5 sm:p-6">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <h3 class="font-bold text-primary-900 group-hover:text-primary-700 transition-colors">{{ $item->title }}</h3>
+                                    @if($item->competition)
+                                    <span class="px-2.5 py-0.5 text-[10px] font-semibold bg-accent-100 text-accent-700 rounded-lg whitespace-nowrap">{{ $item->competition->name }}</span>
+                                    @endif
+                                </div>
+                                <p class="text-gray-500 text-sm line-clamp-2 leading-relaxed">{{ Str::limit(strip_tags($item->body), 150) }}</p>
+                                @if($item->winners->count())
+                                <div class="mt-2 flex items-center gap-2">
+                                    <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-lg">{{ $item->winners->count() }} Pemenang</span>
+                                </div>
+                                @endif
+                            </div>
+                            <svg class="w-5 h-5 text-gray-300 group-hover:text-primary shrink-0 mt-1 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
                         </div>
-                        <div class="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{{ $item->body }}</div>
                     </div>
+                </button>
 
-                    {{-- Winners --}}
+                {{-- Hidden modal data --}}
+                <div id="pengumuman-data-{{ $item->id }}" class="hidden"
+                     data-title="{{ addslashes($item->title) }}"
+                     data-body="{{ addslashes($item->body) }}"
+                     data-competition="{{ addslashes($item->competition->name ?? '') }}">
                     @if($item->winners->count())
-                    <div class="px-6 sm:px-8 pb-6 sm:pb-8">
-                        <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Pemenang</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            @php
-                                $silver = $item->winners->where('place', 2)->first();
-                                $gold = $item->winners->where('place', 1)->first();
-                                $bronze = $item->winners->where('place', 3)->first();
-                            @endphp
+                    @php
+                        $silver = $item->winners->where('place', 2)->first();
+                        $gold = $item->winners->where('place', 1)->first();
+                        $bronze = $item->winners->where('place', 3)->first();
+                    @endphp
+                    <div id="pengumuman-winners-{{ $item->id }}">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 max-w-2xl mx-auto items-end">
                             @if($silver)
                             <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 text-center order-2 sm:order-1">
-                                <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <span class="text-white font-bold">2</span>
-                                </div>
+                                <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-2"><span class="text-white font-bold">2</span></div>
                                 <div class="font-bold text-primary-900 text-sm">{{ $silver->participant_name }}</div>
                                 <div class="text-xs text-gray-500">{{ $silver->school }}</div>
                                 @if($silver->note)<div class="text-xs text-gray-400 mt-1">{{ $silver->note }}</div>@endif
@@ -62,9 +74,7 @@
                             @endif
                             @if($gold)
                             <div class="bg-yellow-50 rounded-xl p-4 border-2 border-yellow-300 text-center order-1 sm:order-2 transform sm:-translate-y-1">
-                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <span class="text-white font-bold">1</span>
-                                </div>
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-2"><span class="text-white font-bold">1</span></div>
                                 <div class="font-bold text-primary-900">{{ $gold->participant_name }}</div>
                                 <div class="text-xs text-gray-500">{{ $gold->school }}</div>
                                 @if($gold->note)<div class="text-xs text-gray-400 mt-1">{{ $gold->note }}</div>@endif
@@ -72,9 +82,7 @@
                             @endif
                             @if($bronze)
                             <div class="bg-orange-50 rounded-xl p-4 border border-orange-200 text-center order-3">
-                                <div class="w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <span class="text-white font-bold">3</span>
-                                </div>
+                                <div class="w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center mx-auto mb-2"><span class="text-white font-bold">3</span></div>
                                 <div class="font-bold text-primary-900 text-sm">{{ $bronze->participant_name }}</div>
                                 <div class="text-xs text-gray-500">{{ $bronze->school }}</div>
                                 @if($bronze->note)<div class="text-xs text-gray-400 mt-1">{{ $bronze->note }}</div>@endif
@@ -103,4 +111,52 @@
     </div>
 </section>
 
+{{-- Modal Pengumuman --}}
+<div id="pengumuman-modal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closePengumuman()"></div>
+    <div class="relative flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between rounded-t-2xl">
+                <div class="flex items-center gap-2 min-w-0">
+                    <h3 id="modal-title" class="font-bold text-primary-900 truncate"></h3>
+                    <span id="modal-competition" class="hidden px-2.5 py-0.5 text-[10px] font-semibold bg-accent-100 text-accent-700 rounded-lg whitespace-nowrap"></span>
+                </div>
+                <button onclick="closePengumuman()" class="shrink-0 p-2 hover:bg-gray-100 rounded-lg transition">
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8">
+                <div id="modal-body" class="text-gray-600 text-sm leading-relaxed whitespace-pre-line"></div>
+                <div id="modal-winners"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
+
+@push('scripts')
+<script>
+function openPengumuman(id) {
+    var data = document.getElementById('pengumuman-data-' + id);
+    if (!data) return;
+    document.getElementById('modal-title').textContent = data.dataset.title;
+    document.getElementById('modal-body').textContent = data.dataset.body;
+    var comp = document.getElementById('modal-competition');
+    if (data.dataset.competition) {
+        comp.textContent = data.dataset.competition;
+        comp.classList.remove('hidden');
+    } else {
+        comp.classList.add('hidden');
+    }
+    var winnersEl = document.getElementById('pengumuman-winners-' + id);
+    document.getElementById('modal-winners').innerHTML = winnersEl ? winnersEl.innerHTML : '';
+    document.getElementById('pengumuman-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+function closePengumuman() {
+    document.getElementById('pengumuman-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+</script>
+@endpush

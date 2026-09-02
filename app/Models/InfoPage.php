@@ -19,5 +19,6 @@ class InfoPage extends Model
         'slug',
         'title',
         'body',
+        'content_file_path',
     ];
 }
