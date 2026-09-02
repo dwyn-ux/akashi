@@ -114,8 +114,8 @@
 {{-- Modal Pengumuman --}}
 <div id="pengumuman-modal" class="fixed inset-0 z-50 hidden">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closePengumuman()"></div>
-    <div class="relative flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto">
+    <div class="relative flex items-start justify-center min-h-screen p-4 pt-[5vh]">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
             <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between rounded-t-2xl">
                 <div class="flex items-center gap-2 min-w-0">
                     <h3 id="modal-title" class="font-bold text-primary-900 truncate"></h3>
@@ -125,7 +125,7 @@
                     <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
-            <div class="p-6 sm:p-8">
+            <div class="p-6 sm:p-8 overflow-y-auto flex-1">
                 <div id="modal-body" class="text-gray-600 text-sm leading-relaxed whitespace-pre-line"></div>
                 <div id="modal-winners"></div>
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CompetitionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\JuaraController as AdminJuaraController;
 use App\Http\Controllers\Admin\JuknisController as AdminJuknisController;
 use App\Http\Controllers\Admin\KopSuratController;
 use App\Http\Controllers\Admin\ParticipantController;
@@ -73,6 +74,12 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('/kegiatan', [ActivityController::class, 'store'])->name('admin.kegiatan.store');
     Route::patch('/kegiatan/{activity}', [ActivityController::class, 'update'])->name('admin.kegiatan.update');
     Route::delete('/kegiatan/{activity}', [ActivityController::class, 'destroy'])->name('admin.kegiatan.destroy');
+
+    Route::get('/juara', [AdminJuaraController::class, 'index'])->name('admin.juara.index');
+    Route::post('/juara', [AdminJuaraController::class, 'store'])->name('admin.juara.store');
+    Route::get('/juara/{juara}/edit', [AdminJuaraController::class, 'edit'])->name('admin.juara.edit');
+    Route::put('/juara/{juara}', [AdminJuaraController::class, 'update'])->name('admin.juara.update');
+    Route::delete('/juara/{juara}', [AdminJuaraController::class, 'destroy'])->name('admin.juara.destroy');
 
     Route::get('/pengumuman', [AnnouncementController::class, 'index'])->name('admin.pengumuman.index');
     Route::post('/pengumuman', [AnnouncementController::class, 'store'])->name('admin.pengumuman.store');
