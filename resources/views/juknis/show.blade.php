@@ -54,7 +54,7 @@
 {{-- Juknis Modal --}}
 <div id="juknis-modal" class="fixed inset-0 z-50 hidden">
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeJuknis()"></div>
-    <div class="relative flex items-start justify-center min-h-screen p-4 pt-[5vh]">
+    <div class="relative flex items-start justify-center min-h-[100dvh] p-4 pt-[5vh]">
         <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
             <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
                 <h3 class="font-bold text-primary-900">{{ $page->title }}</h3>

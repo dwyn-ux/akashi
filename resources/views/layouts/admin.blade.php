@@ -15,7 +15,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-100 min-h-screen" style="overflow-y: auto !important; -webkit-overflow-scrolling: touch;">
 
     <!-- Mobile Overlay -->
     <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden" onclick="toggleSidebar()"></div>
@@ -87,7 +87,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="main-content min-h-screen flex flex-col lg:ml-60">
+    <div class="main-content min-h-[100dvh] flex flex-col lg:ml-60">
 
         <!-- Header -->
         <header class="sticky top-0 z-30 bg-white shadow-sm">
@@ -131,6 +131,23 @@
             sidebar.classList.toggle('sidebar-open');
             overlay.classList.toggle('hidden');
         }
+        // Safety: keep document scroll alive on admin too.
+        (function () {
+            const visibleModal = () => document.querySelector('.fixed.inset-0:not(.hidden)');
+            const releaseLock = () => {
+                if (!visibleModal()) {
+                    document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.height = '';
+                    document.documentElement.style.overflow = '';
+                }
+            };
+            window.addEventListener('pageshow', releaseLock);
+            new MutationObserver(releaseLock).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+            document.addEventListener('touchstart', function (e) {
+                if (!e.target.closest('.fixed.inset-0')) releaseLock();
+            }, { passive: true });
+        })();
     </script>
     @stack('scripts')
 </body>

@@ -14,18 +14,18 @@
     </style>
     @stack('styles')
 </head>
-<body class="bg-paper text-navy antialiased overflow-x-hidden">
+<body class="bg-paper text-navy antialiased overflow-x-hidden" style="overflow-y: auto !important; -webkit-overflow-scrolling: touch;">
 
     {{-- NAVBAR — editorial, confident, no SaaS feel --}}
     <header class="sticky top-0 z-50 bg-navy">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-[80px] lg:h-[88px]">
                 {{-- Logo left — editorial type --}}
-                <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0">
+                <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0 overflow-hidden h-[80px] lg:h-[88px]">
                     @if(!empty($settings['site_logo']))
-                        <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-20 h-20 object-contain">
+                        <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-20 h-20 object-contain shrink-0">
                     @else
-                        <img src="{{ asset('asset/brand/akashi-mark.svg') }}" alt="AKASHI 2026" class="w-20 h-20">
+                        <img src="{{ asset('asset/brand/akashi-mark.svg') }}" alt="AKASHI 2026" class="w-20 h-20 shrink-0">
                     @endif
                 </a>
 
@@ -148,18 +148,25 @@
         // Safety: release body scroll lock on ESC and when no visible modal.
         (function () {
             const visibleModal = () => document.querySelector('.fixed.inset-0:not(.hidden)');
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && !visibleModal()) {
+            const releaseLock = () => {
+                if (!visibleModal()) {
                     document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.height = '';
+                    document.documentElement.style.overflow = '';
                 }
+            };
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') releaseLock();
             });
-            window.addEventListener('pageshow', function () {
-                if (!visibleModal()) document.body.style.overflow = '';
-            });
+            window.addEventListener('pageshow', releaseLock);
+            window.addEventListener('popstate', releaseLock);
             // Watch any modal being hidden and release scroll lock if none remain.
-            new MutationObserver(function () {
-                if (!visibleModal()) document.body.style.overflow = '';
-            }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+            new MutationObserver(releaseLock).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+            // Final hard fallback: any touch/click on the body area outside modals clears inline overflow.
+            document.addEventListener('touchstart', function (e) {
+                if (!e.target.closest('.fixed.inset-0')) releaseLock();
+            }, { passive: true });
         })();
     </script>
     @stack('scripts')

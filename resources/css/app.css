@@ -160,8 +160,28 @@
 /* Ensure long pages can always scroll vertically even if a parent
    inadvertently constrains height. */
 html, body {
-    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
+    height: auto !important;
+    min-height: 100%;
+}
+
+/* Tailwind's .overflow-x-hidden forces overflow-y to auto on the
+   element, which traps scrolling inside any descendant that is
+   taller than the viewport. Force visible so vertical scroll stays
+   on the root document. */
+.overflow-x-hidden {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
+
+/* The root <main> should grow naturally with content. Without this,
+   flex children with min-h-screen trap the scroll inside themselves. */
+main {
+    min-height: auto !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
 }
 
 /* Paper sheet effect — uses real asset/textures/paper-noise.svg */
