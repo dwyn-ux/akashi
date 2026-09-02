@@ -14,18 +14,18 @@
     </style>
     @stack('styles')
 </head>
-<body class="bg-paper text-navy antialiased">
+<body class="bg-paper text-navy antialiased overflow-x-hidden">
 
     {{-- NAVBAR — editorial, confident, no SaaS feel --}}
     <header class="sticky top-0 z-50 bg-navy">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-[60px] lg:h-[64px]">
+            <div class="flex items-center justify-between h-[80px] lg:h-[88px]">
                 {{-- Logo left — editorial type --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-3 group shrink-0">
                     @if(!empty($settings['site_logo']))
-                        <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-10 h-10 object-contain">
+                        <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-20 h-20 object-contain">
                     @else
-                        <img src="{{ asset('asset/brand/akashi-mark.svg') }}" alt="AKASHI 2026" class="w-10 h-10">
+                        <img src="{{ asset('asset/brand/akashi-mark.svg') }}" alt="AKASHI 2026" class="w-20 h-20">
                     @endif
                 </a>
 
@@ -93,9 +93,9 @@
                 <div>
                     <a href="{{ route('home') }}" class="flex items-center gap-2.5">
                         @if(!empty($settings['site_logo']))
-                            <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-9 h-9 object-contain">
+                            <img src="{{ asset('storage/' . $settings['site_logo']) }}" alt="{{ $settings['event_name'] ?? 'AKASHI' }}" class="w-18 h-18 object-contain">
                         @else
-                            <img src="{{ asset('asset/brand/akashi-mark.svg') }}" alt="AKASHI 2026" class="w-9 h-9">
+                            <img src="{{ asset('asset/brand/akashi-mark.svg') }}" alt="AKASHI 2026" class="w-18 h-18">
                         @endif
                     </a>
                     <p class="text-sm text-white/50 leading-relaxed mt-3 max-w-[28ch]">Ajang Kreasi Ashidiq — kompetisi dan festival untuk siswa SMP Muhammadiyah Unggulan Ashidiq.</p>

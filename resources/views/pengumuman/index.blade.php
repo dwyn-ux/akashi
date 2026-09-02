@@ -158,5 +158,8 @@ function closePengumuman() {
     document.getElementById('pengumuman-modal').classList.add('hidden');
     document.body.style.overflow = '';
 }
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePengumuman();
+});
 </script>
 @endpush

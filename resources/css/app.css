@@ -141,6 +141,12 @@
 
 /* ── Editorial / Scrapbook Utilities ── */
 
+/* Modal scroll safety: enable touch & momentum scrolling on iOS */
+.overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
 /* Paper sheet effect — uses real asset/textures/paper-noise.svg */
 .paper-sheet {
     background-color: #fff;

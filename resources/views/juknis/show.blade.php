@@ -90,5 +90,8 @@ function closeJuknis() {
     document.getElementById('juknis-modal').classList.add('hidden');
     document.body.style.overflow = '';
 }
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeJuknis();
+});
 </script>
 @endpush
