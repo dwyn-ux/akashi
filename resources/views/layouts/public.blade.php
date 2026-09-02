@@ -46,9 +46,9 @@
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/></svg>
                                 Masuk
                             </a>
-                            <a href="{{ route('daftar.index') }}" class="inline-flex h-9 px-5 items-center justify-center bg-orange text-white font-bold text-[13px] uppercase tracking-wide hover:bg-orange-dark transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                            <a href="{{ route('daftar.index') }}" class="inline-flex h-9 px-5 items-center justify-center gap-1.5 bg-orange text-white font-bold text-[13px] uppercase tracking-wide hover:bg-orange-dark transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.964-3.072c.087.55.149 1.115.149 1.706v.474a2.25 2.25 0 01-2.25 2.25H6.75a2.25 2.25 0 01-2.25-2.25v-.474c0-.59.062-1.155.149-1.706A6.375 6.375 0 014 19.235z"/></svg>
                                 Daftar
-                                <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
                             </a>
                         @else
                             <a href="{{ route('juara.index') }}" class="hidden sm:inline-flex h-8 px-3 items-center gap-1.5 text-[13px] font-semibold text-white/60 hover:text-white transition-colors">
@@ -79,7 +79,10 @@
                 <div class="pt-2 grid grid-cols-2 gap-2">
                     <a href="{{ route('admin.login') }}" class="h-10 inline-flex items-center justify-center border border-white/20 text-white/70 text-sm font-semibold rounded">Masuk</a>
                     @if(!($finished ?? false))
-                        <a href="{{ route('daftar.index') }}" class="h-10 inline-flex items-center justify-center bg-orange text-white text-sm font-bold uppercase rounded">Daftar Sekarang</a>
+                        <a href="{{ route('daftar.index') }}" class="h-10 inline-flex items-center justify-center gap-1.5 bg-orange text-white text-sm font-bold uppercase rounded">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.964-3.072c.087.55.149 1.115.149 1.706v.474a2.25 2.25 0 01-2.25 2.25H6.75a2.25 2.25 0 01-2.25-2.25v-.474c0-.59.062-1.155.149-1.706A6.375 6.375 0 014 19.235z"/></svg>
+                            Daftar
+                        </a>
                     @endif
                 </div>
                 @endif
