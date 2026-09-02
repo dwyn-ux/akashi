@@ -82,7 +82,7 @@
     </header>
 
     {{-- MAIN --}}
-    <main>
+    <main class="relative">
         @yield('content')
     </main>
 
@@ -145,6 +145,22 @@
             o.classList.toggle('hidden');
             c.classList.toggle('hidden');
         }
+        // Safety: release body scroll lock on ESC and when no visible modal.
+        (function () {
+            const visibleModal = () => document.querySelector('.fixed.inset-0:not(.hidden)');
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !visibleModal()) {
+                    document.body.style.overflow = '';
+                }
+            });
+            window.addEventListener('pageshow', function () {
+                if (!visibleModal()) document.body.style.overflow = '';
+            });
+            // Watch any modal being hidden and release scroll lock if none remain.
+            new MutationObserver(function () {
+                if (!visibleModal()) document.body.style.overflow = '';
+            }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+        })();
     </script>
     @stack('scripts')
 </body>
