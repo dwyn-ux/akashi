@@ -10,6 +10,7 @@ class JuaraController extends Controller
     {
         $announcements = Announcement::with(['winners', 'competition'])
             ->where('published', true)
+            ->whereHas('winners')
             ->latest('year')
             ->latest()
             ->get();
