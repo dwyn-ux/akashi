@@ -6,6 +6,7 @@
 
 <section class="bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 text-white py-12 sm:py-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        @include('partials.logo')
         <h1 class="text-3xl sm:text-4xl font-extrabold mb-4">Pendaftaran Lomba</h1>
         <p class="text-purple-300">Isi data diri dengan lengkap dan benar.</p>
     </div>
