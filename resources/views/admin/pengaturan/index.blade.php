@@ -113,33 +113,80 @@
 
         <!-- Kontak -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">Kontak</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Kontak & Media Sosial</h3>
+            <p class="text-xs text-gray-500 mb-4">Isi semua channel yang aktif. Kosongkan yang tidak dipakai.</p>
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp (nomor, format intl)</label>
                     <input type="text" name="whatsapp" value="{{ old('whatsapp', $settings['whatsapp'] ?? '') }}"
-                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="6281234567890">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none font-mono" placeholder="6281234567890">
+                    <p class="text-xs text-gray-400 mt-1">Contoh: <code>6281234567890</code> (62 + nomor, tanpa + / spasi)</p>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Instagram (username)</label>
                     <input type="text" name="instagram" value="{{ old('instagram', $settings['instagram'] ?? '') }}"
-                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="@akashi2026">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="akashi.ashidiq">
+                    <p class="text-xs text-gray-400 mt-1">Username saja, tanpa <code>@</code>. Contoh: <code>akashi.ashidiq</code></p>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
                     <input type="email" name="email" value="{{ old('email', $settings['email'] ?? '') }}"
-                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                            placeholder="panitia@akashi.sch.id">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Alamat</label>
                     <textarea name="address" rows="2"
-                              class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">{{ old('address', $settings['address'] ?? '') }}</textarea>
+                              class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                              placeholder="Purworejo, Jurangjero, Ngawen, Gunungkidul, D.I. Yogyakarta">{{ old('address', $settings['address'] ?? '') }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Sosial URL -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">URL Media Sosial</h3>
+            <p class="text-xs text-gray-500 mb-4">Link channel tambahan. Kosongkan jika tidak ada.</p>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">YouTube URL</label>
+                    <input type="url" name="youtube_url" value="{{ old('youtube_url', $settings['youtube_url'] ?? '') }}"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                            placeholder="https://www.youtube.com/@akashi">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Teks Footer</label>
-                    <input type="text" name="footer_text" value="{{ old('footer_text', $settings['footer_text'] ?? '') }}"
-                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">TikTok URL</label>
+                    <input type="url" name="tiktok_url" value="{{ old('tiktok_url', $settings['tiktok_url'] ?? '') }}"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                            placeholder="https://www.tiktok.com/@akashi.ashidiq">
                 </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Facebook URL</label>
+                    <input type="url" name="facebook_url" value="{{ old('facebook_url', $settings['facebook_url'] ?? '') }}"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                            placeholder="https://facebook.com/akashi.ashidiq">
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Google Maps Embed</h3>
+            <p class="text-xs text-gray-500 mb-4">Cara embed: buka Google Maps → cari lokasi → klik "Share" → "Embed a map" → salin HTML <code>&lt;iframe&gt;</code> dan paste di sini.</p>
+            <textarea name="google_maps_embed" rows="5"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none font-mono"
+                      placeholder='<iframe src="https://www.google.com/maps/embed?..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'>{{ old('google_maps_embed', $settings['google_maps_embed'] ?? '') }}</textarea>
+            <p class="text-xs text-gray-400 mt-2">Jika dikosongkan, akan muncul tombol "Buka di Google Maps" yang mengarah ke pencarian alamat.</p>
+        </div>
+
+        <!-- Footer Text -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Footer</h3>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Teks Footer (tambahan di copyright)</label>
+                <input type="text" name="footer_text" value="{{ old('footer_text', $settings['footer_text'] ?? '') }}"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                        placeholder="Diselenggarakan oleh...">
             </div>
         </div>
 

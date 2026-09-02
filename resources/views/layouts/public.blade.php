@@ -113,11 +113,24 @@
                 <div>
                     <h3 class="text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">Kontak</h3>
                     <ul class="space-y-2.5 text-sm">
-                        @if($settings['whatsapp_number'] ?? null)
-                        <li><a href="https://wa.me/{{ $settings['whatsapp_number'] }}" target="_blank" class="text-white/60 hover:text-orange transition-colors">WhatsApp</a></li>
+                        @php
+                            $waFooter = preg_replace('/[^0-9]/', '', $settings['whatsapp'] ?? '');
+                            $igFooter = ltrim($settings['instagram'] ?? 'akashi.ashidiq', '@');
+                        @endphp
+                        @if($waFooter)
+                        <li><a href="https://wa.me/{{ $waFooter }}" target="_blank" rel="noopener" class="text-white/60 hover:text-orange transition-colors">WhatsApp</a></li>
                         @endif
-                        <li><a href="https://instagram.com/{{ ltrim($settings['instagram'] ?? 'akashi.ashidiq', '@') }}" target="_blank" class="text-white/60 hover:text-orange transition-colors">Instagram</a></li>
-                        @if($settings['email'] ?? null)
+                        <li><a href="https://instagram.com/{{ $igFooter }}" target="_blank" rel="noopener" class="text-white/60 hover:text-orange transition-colors">Instagram</a></li>
+                        @if(!empty($settings['youtube_url']))
+                        <li><a href="{{ $settings['youtube_url'] }}" target="_blank" rel="noopener" class="text-white/60 hover:text-orange transition-colors">YouTube</a></li>
+                        @endif
+                        @if(!empty($settings['tiktok_url']))
+                        <li><a href="{{ $settings['tiktok_url'] }}" target="_blank" rel="noopener" class="text-white/60 hover:text-orange transition-colors">TikTok</a></li>
+                        @endif
+                        @if(!empty($settings['facebook_url']))
+                        <li><a href="{{ $settings['facebook_url'] }}" target="_blank" rel="noopener" class="text-white/60 hover:text-orange transition-colors">Facebook</a></li>
+                        @endif
+                        @if(!empty($settings['email']))
                         <li><a href="mailto:{{ $settings['email'] }}" class="text-white/60 hover:text-orange transition-colors">{{ $settings['email'] }}</a></li>
                         @endif
                     </ul>

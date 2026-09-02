@@ -28,7 +28,15 @@ class SettingController extends Controller
             'primary_color' => 'nullable|string|max:7',
             'primary_color_hex' => 'nullable|string|max:7',
             'whatsapp' => 'nullable|string|max:255',
+            'whatsapp_number' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
+            'youtube' => 'nullable|string|max:255',
+            'tiktok' => 'nullable|string|max:255',
+            'facebook' => 'nullable|string|max:255',
+            'youtube_url' => 'nullable|url|max:500',
+            'tiktok_url' => 'nullable|url|max:500',
+            'facebook_url' => 'nullable|url|max:500',
+            'google_maps_embed' => 'nullable|string',
             'email' => 'nullable|email|max:255',
             'address' => 'nullable|string',
             'footer_text' => 'nullable|string',
@@ -43,7 +51,6 @@ class SettingController extends Controller
             'site_description' => 'nullable|string',
             'secondary_color' => 'nullable|string|max:7',
             'logo_url' => 'nullable|string|max:255',
-            'whatsapp_number' => 'nullable|string|max:255',
         ]);
 
         // Handle file uploads — store to public disk and save path
@@ -76,6 +83,11 @@ class SettingController extends Controller
             $validated['site_logo'] = $validated['logo_url'];
         }
         unset($validated['site_name'], $validated['site_description'], $validated['whatsapp_number'], $validated['logo_url'], $validated['secondary_color']);
+
+        // Normalize Instagram: strip leading @ if present (we add it back in views)
+        if (!empty($validated['instagram'])) {
+            $validated['instagram'] = ltrim($validated['instagram'], '@');
+        }
 
         foreach ($validated as $key => $value) {
             // Convert null (from empty nullable fields) to empty string to satisfy NOT NULL before migration runs
