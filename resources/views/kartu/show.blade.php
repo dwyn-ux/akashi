@@ -105,6 +105,37 @@
                     </div>
                 </div>
 
+                {{-- Payment Status --}}
+                @if($registration->competition && $registration->competition->fee > 0)
+                <div>
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Status Pembayaran</h3>
+                    <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 space-y-1.5">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Biaya</span>
+                            <span class="font-semibold text-primary-900">Rp {{ number_format($registration->competition->fee, 0, ',', '.') }}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Status</span>
+                            @if($registration->payment_status === 'PAID')
+                                <span class="px-2 py-0.5 text-xs font-bold rounded-full bg-green-100 text-green-700">Lunas</span>
+                            @elseif($registration->payment_status === 'UNPAID')
+                                <span class="px-2 py-0.5 text-xs font-bold rounded-full bg-red-100 text-red-700">Belum Dibayar</span>
+                            @elseif($registration->payment_proof_path)
+                                <span class="px-2 py-0.5 text-xs font-bold rounded-full bg-yellow-100 text-yellow-700">Menunggu Verifikasi</span>
+                            @else
+                                <span class="px-2 py-0.5 text-xs font-bold rounded-full bg-gray-100 text-gray-600">Belum Dibayar</span>
+                            @endif
+                        </div>
+                        @if($registration->payment_status === 'NONE' && !$registration->payment_proof_path)
+                        <p class="text-xs text-amber-600 mt-1">Silakan transfer dan unggah bukti pembayaran melalui halaman pendaftaran.</p>
+                        @endif
+                        @if($registration->payment_proof_path && $registration->payment_status !== 'PAID')
+                        <p class="text-xs text-blue-600 mt-1">Bukti transfer sudah dikirim. Menunggu verifikasi panitia.</p>
+                        @endif
+                    </div>
+                </div>
+                @endif
+
                 {{-- Team Members --}}
                 @if($registration->members->count())
                 <div>

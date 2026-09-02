@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Competition;
 use App\Models\Participant;
 use App\Models\Registration;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -13,8 +14,11 @@ class DaftarController extends Controller
     public function index()
     {
         $competitions = Competition::where('status', 'OPEN')->get();
+        $bankName = Setting::where('key', 'bank_name')->value('value') ?? '';
+        $accountNumber = Setting::where('key', 'account_number')->value('value') ?? '';
+        $accountHolder = Setting::where('key', 'account_holder')->value('value') ?? '';
 
-        return view('daftar.index', compact('competitions'));
+        return view('daftar.index', compact('competitions', 'bankName', 'accountNumber', 'accountHolder'));
     }
 
     public function store(Request $request)
@@ -45,6 +49,7 @@ class DaftarController extends Controller
             'members.*.grade_class' => 'required_with:members|string|max:255',
             'docs' => 'nullable|array',
             'docs.*' => 'nullable|file|max:2048|mimes:pdf,jpg,jpeg,png',
+            'payment_proof' => 'nullable|file|max:5120|mimes:jpg,jpeg,png,pdf',
         ]);
 
         $competition = Competition::findOrFail($validated['competition_id']);
@@ -89,6 +94,12 @@ class DaftarController extends Controller
                     'grade_class' => $member['grade_class'],
                 ]);
             }
+        }
+
+        // Handle payment proof upload
+        if ($request->hasFile('payment_proof')) {
+            $path = $request->file('payment_proof')->store('payments/'.$registration->id, 'public');
+            $registration->update(['payment_proof_path' => $path]);
         }
 
         // Handle document uploads

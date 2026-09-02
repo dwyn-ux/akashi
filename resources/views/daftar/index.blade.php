@@ -130,10 +130,43 @@
                 </div>
             </div>
 
+            {{-- Pembayaran --}}
+            <div id="payment-section" class="bg-card rounded-xl border shadow-sm p-6 sm:p-8 hidden">
+                <h2 class="text-lg font-extrabold text-foreground mb-6 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center text-sm font-bold" id="step-payment">4</span>
+                    Pembayaran
+                </h2>
+                <div id="payment-content">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+                        <p class="text-sm font-semibold text-amber-800 mb-1">Biaya Pendaftaran: <span id="fee-display">Rp 0</span></p>
+                        <p class="text-xs text-amber-700">Silakan transfer ke rekening di bawah ini, lalu unggah bukti transfer.</p>
+                    </div>
+                    @if($bankName)
+                    <div class="bg-white border border-gray-200 rounded-xl p-4 mb-4">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide mb-2">Transfer ke</p>
+                        <div class="space-y-1">
+                            <p class="text-sm font-bold text-gray-800">{{ $bankName }}</p>
+                            <p class="text-lg font-mono font-bold text-primary-700">{{ $accountNumber }}</p>
+                            <p class="text-xs text-gray-500">a.n. {{ $accountHolder }}</p>
+                        </div>
+                    </div>
+                    @else
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+                        <p class="text-xs text-gray-500 italic">Informasi rekening belum dikonfigurasi admin.</p>
+                    </div>
+                    @endif
+                    <div>
+                        <label class="block text-sm font-medium text-foreground mb-1">Bukti Transfer <span class="text-destructive">*</span></label>
+                        <input type="file" name="payment_proof" accept="image/*,.pdf" class="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                        <p class="text-xs text-gray-400 mt-1">Format: JPG, PNG, atau PDF. Maks 5MB.</p>
+                    </div>
+                </div>
+            </div>
+
             {{-- Data Orang Tua/Pendamping --}}
             <div class="bg-card rounded-xl border shadow-sm p-6 sm:p-8">
                 <h2 class="text-lg font-extrabold text-foreground mb-6 flex items-center gap-2">
-                    <span class="w-8 h-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center text-sm font-bold" id="step-docs">4</span>
+                    <span class="w-8 h-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center text-sm font-bold" id="step-docs">5</span>
                     Data Orang Tua / Pendamping
                 </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -171,6 +204,13 @@
 @push('scripts')
 <script>
 const competitions = @json($competitions);
+const bankName = @json($bankName);
+const accountNumber = @json($accountNumber);
+const accountHolder = @json($accountHolder);
+
+function formatRupiah(num) {
+    return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
 
 function handleLombaChange(select) {
     const id = select.value;
@@ -179,6 +219,8 @@ function handleLombaChange(select) {
     const membersFields = document.getElementById('members-fields');
     const docsSection = document.getElementById('docs-section');
     const docsFields = document.getElementById('docs-fields');
+    const paymentSection = document.getElementById('payment-section');
+    const feeDisplay = document.getElementById('fee-display');
 
     membersFields.innerHTML = '';
     docsFields.innerHTML = '';
@@ -186,7 +228,16 @@ function handleLombaChange(select) {
     if (!lomba) {
         membersSection.classList.add('hidden');
         docsSection.classList.add('hidden');
+        paymentSection.classList.add('hidden');
         return;
+    }
+
+    // Payment section
+    if (lomba.fee && lomba.fee > 0) {
+        paymentSection.classList.remove('hidden');
+        feeDisplay.textContent = formatRupiah(lomba.fee);
+    } else {
+        paymentSection.classList.add('hidden');
     }
 
     // Members
@@ -260,15 +311,16 @@ function handleLombaChange(select) {
     // Update step numbers
     const hasMembers = teamSize > 1;
     const hasDocs = requiredDocs && requiredDocs.trim() !== '';
+    const hasPayment = lomba.fee && lomba.fee > 0;
     let step = 3;
     if (hasMembers) {
         document.querySelectorAll('#members-section .font-bold')[0].textContent = step++;
     }
-    if (hasDocs) {
-        document.getElementById('step-docs').textContent = step;
-    } else {
-        document.getElementById('step-docs').textContent = step;
+    if (hasPayment) {
+        document.getElementById('step-payment').textContent = step++;
     }
+    document.getElementById('step-docs').textContent = step;
+    document.querySelector('.bg-card:last-of-type h2 .font-bold').textContent = step + 1;
 }
 
 // Initialize on load
