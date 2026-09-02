@@ -42,13 +42,19 @@
                 <div class="flex items-center gap-2">
                     @if(!request()->routeIs('kartu.*'))
                         @if(!($finished ?? false))
-                            <a href="{{ route('admin.login') }}" class="hidden sm:inline-flex h-8 px-3 items-center justify-center text-[13px] font-semibold text-white/60 hover:text-white transition-colors">Masuk</a>
+                            <a href="{{ route('admin.login') }}" class="hidden sm:inline-flex h-8 px-3 items-center gap-1.5 text-[13px] font-semibold text-white/60 hover:text-white transition-colors">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/></svg>
+                                Masuk
+                            </a>
                             <a href="{{ route('daftar.index') }}" class="inline-flex h-9 px-5 items-center justify-center bg-orange text-white font-bold text-[13px] uppercase tracking-wide hover:bg-orange-dark transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
                                 Daftar
                                 <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
                             </a>
                         @else
-                            <a href="{{ route('juara.index') }}" class="hidden sm:inline-flex h-8 px-3 items-center justify-center text-[13px] font-semibold text-white/60 hover:text-white transition-colors">Juara</a>
+                            <a href="{{ route('juara.index') }}" class="hidden sm:inline-flex h-8 px-3 items-center gap-1.5 text-[13px] font-semibold text-white/60 hover:text-white transition-colors">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.192 6.192 0 002.46 3.793M7.73 9.728c-.75-.94-1.232-2.025-1.232-3.228 0-2.25 1.243-3.858 2.958-4.213m11.322 0a4.778 4.778 0 00-1.79-1.04M16.5 18.75c-1.075 0-2.057-.375-2.756-1.063M16.5 18.75c-.97 0-1.846-.4-2.5-1.04"/></svg>
+                                Juara
+                            </a>
                             <a href="{{ route('pengumuman.index') }}" class="inline-flex h-9 px-5 items-center justify-center bg-orange text-white font-bold text-[13px] uppercase tracking-wide transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">Pengumuman</a>
                         @endif
                     @endif
