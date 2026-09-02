@@ -12,6 +12,12 @@ export default defineConfig({
                 bunny('Plus Jakarta Sans', {
                     weights: [400, 500, 600, 700, 800],
                 }),
+                bunny('Caveat', {
+                    weights: [400, 500, 600, 700],
+                }),
+                bunny('Permanent Marker', {
+                    weights: [400],
+                }),
             ],
         }),
         tailwindcss(),

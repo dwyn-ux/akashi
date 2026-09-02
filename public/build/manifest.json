@@ -1,7 +1,47 @@
 {
-  "_fonts-ZlUTESbe.css": {
-    "file": "assets/fonts-ZlUTESbe.css",
-    "src": "_fonts-ZlUTESbe.css"
+  "_caveat-400-normal-BzhAQZkN.woff": {
+    "file": "assets/caveat-400-normal-BzhAQZkN.woff",
+    "src": "_caveat-400-normal-BzhAQZkN.woff"
+  },
+  "_caveat-400-normal-D6LQsQ_v.woff2": {
+    "file": "assets/caveat-400-normal-D6LQsQ_v.woff2",
+    "src": "_caveat-400-normal-D6LQsQ_v.woff2"
+  },
+  "_caveat-500-normal-B9SDL8cy.woff2": {
+    "file": "assets/caveat-500-normal-B9SDL8cy.woff2",
+    "src": "_caveat-500-normal-B9SDL8cy.woff2"
+  },
+  "_caveat-500-normal-Do9veZfZ.woff": {
+    "file": "assets/caveat-500-normal-Do9veZfZ.woff",
+    "src": "_caveat-500-normal-Do9veZfZ.woff"
+  },
+  "_caveat-600-normal-DUjB8dgm.woff": {
+    "file": "assets/caveat-600-normal-DUjB8dgm.woff",
+    "src": "_caveat-600-normal-DUjB8dgm.woff"
+  },
+  "_caveat-600-normal-zlTlWIYU.woff2": {
+    "file": "assets/caveat-600-normal-zlTlWIYU.woff2",
+    "src": "_caveat-600-normal-zlTlWIYU.woff2"
+  },
+  "_caveat-700-normal-D8_1Nw6V.woff2": {
+    "file": "assets/caveat-700-normal-D8_1Nw6V.woff2",
+    "src": "_caveat-700-normal-D8_1Nw6V.woff2"
+  },
+  "_caveat-700-normal-cPyBTTZN.woff": {
+    "file": "assets/caveat-700-normal-cPyBTTZN.woff",
+    "src": "_caveat-700-normal-cPyBTTZN.woff"
+  },
+  "_fonts-VdQJH1wo.css": {
+    "file": "assets/fonts-VdQJH1wo.css",
+    "src": "_fonts-VdQJH1wo.css"
+  },
+  "_permanent-marker-400-normal-BF23djCy.woff2": {
+    "file": "assets/permanent-marker-400-normal-BF23djCy.woff2",
+    "src": "_permanent-marker-400-normal-BF23djCy.woff2"
+  },
+  "_permanent-marker-400-normal-BnZj5c41.woff": {
+    "file": "assets/permanent-marker-400-normal-BnZj5c41.woff",
+    "src": "_permanent-marker-400-normal-BnZj5c41.woff"
   },
   "_plus-jakarta-sans-400-normal-BDKaGhyp.woff": {
     "file": "assets/plus-jakarta-sans-400-normal-BDKaGhyp.woff",
@@ -44,7 +84,7 @@
     "src": "_plus-jakarta-sans-800-normal-CusIZhrK.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-D-8uZfs_.css",
+    "file": "assets/app-CLmFzRDw.css",
     "name": "app",
     "names": [
       "app.css"

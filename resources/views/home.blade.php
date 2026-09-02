@@ -4,282 +4,381 @@
 
 @section('content')
 
-{{-- HERO — Clean Competition, white dominant, 2-col --}}
-<section class="bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-16">
-        <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-            {{-- LEFT --}}
-            <div>
-                <div class="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-50 px-3 py-1 text-xs font-semibold tracking-wide text-primary">
-                    <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
-                    Kompetisi Pelajar 2026 — SMP Muhammadiyah Unggulan Ashidiq
-                </div>
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- HERO — Editorial Scrapbook Composition --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+<section class="relative overflow-hidden bg-navy">
+    {{-- Paper noise texture overlay --}}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.04]" aria-hidden="true">
+        <img src="{{ asset('asset/textures/paper-noise.svg') }}" alt="" class="w-full h-full object-cover" style="mix-blend-mode: overlay;">
+    </div>
 
-                <h1 class="mt-5 font-extrabold tracking-tight leading-[0.95] text-navy">
-                    <span class="block text-3xl sm:text-4xl lg:text-[44px]">Ajang Kreasi</span>
-                    <span class="block text-3xl sm:text-4xl lg:text-[44px] text-primary">Ashidiq 2026</span>
-                </h1>
+    {{-- Grid paper pattern --}}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03]" aria-hidden="true">
+        <img src="{{ asset('asset/textures/grid-paper.svg') }}" alt="" class="w-full h-full object-cover" style="background-repeat: repeat;">
+    </div>
 
-                <p class="mt-3 text-base font-semibold text-navy">Tunjukkan Bakatmu, Raih Prestasimu!</p>
+    {{-- Scattered doodles in background --}}
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <img src="{{ asset('asset/doodles/star.svg') }}" alt="" class="absolute top-[10%] right-[6%] w-14 h-14 opacity-20 rotate-12 anim-wiggle">
+        <img src="{{ asset('asset/doodles/circle.svg') }}" alt="" class="absolute bottom-[18%] left-[4%] w-12 h-12 opacity-15 -rotate-6">
+        <img src="{{ asset('asset/doodles/arrow.svg') }}" alt="" class="absolute top-[40%] left-[2%] w-24 h-10 opacity-10" style="transform: rotate(-10deg);">
+        <img src="{{ asset('asset/doodles/scribble.svg') }}" alt="" class="absolute bottom-[10%] right-[8%] w-40 h-12 opacity-10 rotate-3">
+        <img src="{{ asset('asset/doodles/crown.svg') }}" alt="" class="absolute top-[15%] left-[15%] w-16 h-12 opacity-10 -rotate-6">
+    </div>
 
-                <p class="mt-3 text-sm leading-relaxed text-muted-foreground max-w-[52ch]">
-                    Kompetisi dan festival untuk siswa SMP Muhammadiyah Unggulan Ashidiq. Saatnya generasi muda unjuk kreativitas, kompetensi dan sportivitas menuju masa depan yang lebih baik.
-                </p>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
-                <div class="mt-5 flex flex-wrap items-center gap-3 text-sm">
-                    <span class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-medium text-foreground">
-                        <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-                        16 September 2026
-                    </span>
-                    <span class="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-medium text-foreground">
-                        <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                        SMP Muhammadiyah Unggulan Ashidiq
-                    </span>
-                </div>
+            {{-- LEFT: Paper sheet with headline --}}
+            <div class="lg:col-span-7 relative anim-fade-left">
+                {{-- Tape pieces — real SVG --}}
+                <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-4 left-4 sm:left-10 w-24 h-7 z-10 opacity-80" style="transform: rotate(-2deg);" aria-hidden="true">
+                <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 right-12 sm:right-20 w-20 h-6 z-10 opacity-70" style="transform: rotate(3deg);" aria-hidden="true">
 
-                <div class="mt-7 flex flex-wrap gap-3">
-                    @if($finished)
-                        <a href="{{ route('juara.index') }}" class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
-                            Lihat Para Juara
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12a2.25 2.25 0 002.25 2.25h9A2.25 2.25 0 0019.5 18V6"/></svg>
-                        </a>
-                        <a href="{{ route('juknis.show') }}" class="inline-flex h-10 items-center justify-center rounded-md border border-border bg-white px-5 text-sm font-medium hover:bg-muted transition-colors">Lihat Juknis</a>
-                    @else
-                        <a href="{{ route('daftar.index') }}" class="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
-                            Daftar Sekarang
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
-                        </a>
-                        <a href="{{ route('juknis.show') }}" class="inline-flex h-10 items-center justify-center rounded-md border border-border bg-white px-5 text-sm font-medium hover:bg-muted transition-colors">Lihat Juknis</a>
-                    @endif
+                {{-- Main paper sheet --}}
+                <div class="paper-sheet p-6 sm:p-8 lg:p-10 relative" style="transform: rotate(-0.5deg);">
+                    {{-- Registration stamp — real SVG --}}
+                    <div class="absolute top-2 right-2 sm:top-3 sm:right-3 w-28 sm:w-32 hidden sm:block anim-stamp delay-3">
+                        <img src="{{ asset('asset/ui/stamp-open.svg') }}" alt="Pendaftaran Dibuka" class="w-full h-auto">
+                    </div>
+
+                    {{-- Eyebrow --}}
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="inline-block w-2 h-2 bg-orange rounded-full anim-wiggle"></span>
+                        <span class="text-[11px] font-bold tracking-[0.2em] uppercase text-navy/50">Kompetisi Pelajar 2026</span>
+                    </div>
+
+                    {{-- Main headline — using real logo as brand reference --}}
+                    <h1 class="font-marker leading-[0.9] text-navy">
+                        <span class="block text-[42px] sm:text-[56px] lg:text-[72px] text-navy">Ajang Kreasi</span>
+                        <span class="block text-[42px] sm:text-[56px] lg:text-[72px] text-orange" style="transform: rotate(-0.5deg);">Ashidiq 2026</span>
+                    </h1>
+
+                    {{-- Subheadline with brush stroke underline --}}
+                    <div class="mt-4 relative inline-block">
+                        <p class="text-lg sm:text-xl font-bold text-navy/80" style="font-family: 'Caveat', cursive; font-size: 1.4em;">
+                            Tunjukkan Bakatmu, Raih Prestasimu!
+                        </p>
+                        <img src="{{ asset('asset/ui/brush-purple.svg') }}" alt="" class="absolute -bottom-2 left-0 w-full h-4 opacity-20" aria-hidden="true">
+                    </div>
+
+                    {{-- Description --}}
+                    <p class="mt-4 text-sm leading-relaxed text-navy/60 max-w-[50ch]">
+                        Kompetisi dan festival untuk siswa SMP Muhammadiyah Unggulan Ashidiq. Saatnya generasi muda unjuk kreativitas, kompetensi dan sportivitas menuju masa depan yang lebih baik.
+                    </p>
+
+                    {{-- Event meta --}}
+                    <div class="mt-5 flex flex-wrap items-center gap-3 text-sm">
+                        <span class="inline-flex items-center gap-2 border-2 border-navy/15 bg-yellow-light px-3 py-1.5 text-xs font-bold text-navy/70" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                            <svg class="w-3.5 h-3.5 text-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                            16 September 2026
+                        </span>
+                        <span class="inline-flex items-center gap-2 border-2 border-navy/15 bg-yellow-light px-3 py-1.5 text-xs font-bold text-navy/70" style="border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;">
+                            <svg class="w-3.5 h-3.5 text-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                            SMP Muhammadiyah Unggulan Ashidiq
+                        </span>
+                    </div>
+
+                    {{-- CTA Buttons --}}
+                    <div class="mt-7 flex flex-wrap gap-3">
+                        @if($finished)
+                            <a href="{{ route('juara.index') }}" class="cta-button cta-button-white text-sm">
+                                Lihat Para Juara
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
+                            </a>
+                            <a href="{{ route('juknis.show') }}" class="inline-flex h-12 items-center justify-center border-2 border-navy/20 bg-transparent px-5 text-sm font-bold text-navy/70 hover:bg-navy/5 transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">Lihat Juknis</a>
+                        @else
+                            <a href="{{ route('daftar.index') }}" class="cta-button text-sm">
+                                Daftar Sekarang
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
+                            </a>
+                            <a href="{{ route('juknis.show') }}" class="inline-flex h-12 items-center justify-center border-2 border-white/20 bg-transparent px-5 text-sm font-bold text-white/70 hover:bg-white/5 transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">Lihat Juknis</a>
+                        @endif
+                    </div>
+
+                    {{-- Small decorative label --}}
+                    <div class="mt-5 flex items-center gap-2">
+                        <div class="w-8 h-px bg-navy/15"></div>
+                        <span class="text-[10px] font-bold tracking-[0.15em] uppercase text-navy/30">SMP Muhammadiyah Unggulan Ashidiq</span>
+                        <div class="w-8 h-px bg-navy/15"></div>
+                    </div>
                 </div>
             </div>
 
-            {{-- RIGHT — trophy visual + countdown --}}
-            <div class="lg:pl-6">
-                {{-- Trophy visual — clean flat editorial --}}
-                <div class="relative rounded-xl border border-border bg-white p-6 sm:p-8 overflow-hidden">
-                    {{-- subtle bg texture inside card --}}
-                    <div class="absolute inset-0 pointer-events-none">
-                        <svg class="absolute -top-6 -right-6 w-24 h-24 text-primary/[0.06]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/></svg>
-                        <svg class="absolute -bottom-4 -left-4 w-20 h-20 text-gold/[0.08]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="6"/><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/></svg>
-                    </div>
-                    <div class="relative flex flex-col items-center text-center">
-                        <div class="w-20 h-20 rounded-xl bg-primary-50 border border-primary/10 flex items-center justify-center">
-                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+            {{-- RIGHT: Championship Poster + Countdown --}}
+            <div class="lg:col-span-5 space-y-5 anim-fade-right delay-2">
+
+                {{-- Championship Poster — taped to the page --}}
+                <div class="relative">
+                    {{-- Tape pieces — real SVG --}}
+                    <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 left-4 w-20 h-6 z-10 opacity-80" style="transform: rotate(2deg);" aria-hidden="true">
+                    <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 right-6 w-16 h-5 z-10 opacity-70" style="transform: rotate(-3deg);" aria-hidden="true">
+
+                    <div class="paper-sheet-lined p-6 text-center relative" style="transform: rotate(0.75deg);">
+                        {{-- Trophy illustration — real SVG --}}
+                        <div class="relative inline-block mb-4">
+                            <img src="{{ asset('asset/illustrations/trophy.svg') }}" alt="Trophy" class="w-20 h-24 sm:w-24 sm:h-28 mx-auto">
+                            {{-- Decorative stars --}}
+                            <img src="{{ asset('asset/doodles/star.svg') }}" alt="" class="absolute -top-3 -left-3 w-6 h-6 rotate-[15deg]" aria-hidden="true">
+                            <img src="{{ asset('asset/doodles/star.svg') }}" alt="" class="absolute -bottom-1 -right-4 w-5 h-5 opacity-60 -rotate-[10deg]" aria-hidden="true">
                         </div>
-                        <div class="mt-3 flex items-center gap-2">
-                            <span class="w-6 h-px bg-gold/40"></span>
-                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
-                            <span class="w-6 h-px bg-gold/40"></span>
-                        </div>
-                        <h3 class="mt-2 font-extrabold tracking-tight text-navy">Championship</h3>
-                        <p class="text-xs font-medium tracking-widest uppercase text-muted-foreground">AKASHI 2026</p>
-                        <div class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-gold-50 border border-gold-100 px-3 py-1 text-xs font-semibold text-gold-700">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+
+                        <h3 class="font-marker text-2xl sm:text-3xl text-navy tracking-wide">CHAMPIONSHIP</h3>
+                        <p class="text-[11px] font-bold tracking-[0.2em] uppercase text-navy/50 mt-1">AKASHI 2026</p>
+
+                        <div class="mt-3 inline-flex items-center gap-1.5 bg-yellow-light border-2 border-navy/10 px-3 py-1 text-[11px] font-bold text-navy/70" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
                             Prestasi · Sportivitas · Kreativitas
                         </div>
+
+                        {{-- Doodle underline — real SVG --}}
+                        <img src="{{ asset('asset/doodles/scribble.svg') }}" alt="" class="absolute bottom-2 left-1/2 -translate-x-1/2 w-36 h-6 opacity-25" aria-hidden="true">
                     </div>
                 </div>
 
-                {{-- Countdown — white, thin purple border, no shadow --}}
+                {{-- Countdown — notebook strip --}}
                 @if(!$finished && ($settings['event_date'] ?? null))
-                <div class="mt-4 rounded-xl border border-primary/20 bg-white p-4">
-                    <div class="flex items-center justify-between gap-3 mb-3">
-                        <span class="text-xs font-semibold tracking-widest uppercase text-primary">Hitung Mundur</span>
-                        <span class="inline-flex items-center gap-1.5 rounded-full bg-green-50 border border-green-200 px-2.5 py-1 text-xs font-medium text-green-700">
-                            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                            Pendaftaran Dibuka
-                        </span>
+                <div class="relative">
+                    {{-- Tape — real SVG --}}
+                    <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 z-10 opacity-70" style="transform: translateX(-50%) rotate(-1deg);" aria-hidden="true">
+
+                    <div class="paper-sheet-grid p-5" style="transform: rotate(-0.5deg);">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <span class="font-marker text-lg text-navy tracking-wide">Hitung Mundur</span>
+                            <span class="inline-flex items-center gap-1.5 bg-green-light border-2 border-green/30 px-2.5 py-1 text-[10px] font-bold text-navy/70 uppercase tracking-wide" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                                <span class="w-1.5 h-1.5 bg-green rounded-full"></span>
+                                Pendaftaran Dibuka
+                            </span>
+                        </div>
+
+                        <div id="countdown" class="grid grid-cols-4 gap-2">
+                            <div class="text-center p-2 border-2 border-navy/10 bg-white" style="border-radius: 4px;">
+                                <div id="cd-days" class="font-marker text-2xl sm:text-3xl leading-none text-navy">00</div>
+                                <div class="text-[9px] font-bold tracking-[0.15em] uppercase text-navy/40 mt-1">Hari</div>
+                            </div>
+                            <div class="text-center p-2 border-2 border-navy/10 bg-white" style="border-radius: 4px;">
+                                <div id="cd-hours" class="font-marker text-2xl sm:text-3xl leading-none text-navy">00</div>
+                                <div class="text-[9px] font-bold tracking-[0.15em] uppercase text-navy/40 mt-1">Jam</div>
+                            </div>
+                            <div class="text-center p-2 border-2 border-navy/10 bg-white" style="border-radius: 4px;">
+                                <div id="cd-minutes" class="font-marker text-2xl sm:text-3xl leading-none text-navy">00</div>
+                                <div class="text-[9px] font-bold tracking-[0.15em] uppercase text-navy/40 mt-1">Menit</div>
+                            </div>
+                            <div class="text-center p-2 border-2 border-navy/10 bg-white" style="border-radius: 4px;">
+                                <div id="cd-seconds" class="font-marker text-2xl sm:text-3xl leading-none text-navy">00</div>
+                                <div class="text-[9px] font-bold tracking-[0.15em] uppercase text-navy/40 mt-1">Detik</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 text-center text-[11px] font-bold text-navy/40 tracking-wide">16 September – 30 September 2026</div>
+
+                        {{-- Arrow doodle — real SVG --}}
+                        <img src="{{ asset('asset/doodles/arrow.svg') }}" alt="" class="absolute -bottom-5 right-3 w-10 h-6 opacity-25 rotate-[30deg]" aria-hidden="true">
                     </div>
-                    <div id="countdown" class="grid grid-cols-4 gap-2">
-                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
-                            <div id="cd-days" class="text-xl font-extrabold leading-none text-navy">00</div>
-                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">HARI</div>
-                        </div>
-                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
-                            <div id="cd-hours" class="text-xl font-extrabold leading-none text-navy">00</div>
-                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">JAM</div>
-                        </div>
-                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
-                            <div id="cd-minutes" class="text-xl font-extrabold leading-none text-navy">00</div>
-                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">MENIT</div>
-                        </div>
-                        <div class="rounded-lg border border-primary/15 bg-white p-2.5 text-center">
-                            <div id="cd-seconds" class="text-xl font-extrabold leading-none text-navy">00</div>
-                            <div class="text-[10px] font-semibold tracking-widest text-muted-foreground mt-1">DETIK</div>
-                        </div>
-                    </div>
-                    <div class="mt-3 text-center text-xs text-muted-foreground">16 September – 30 September 2026</div>
                 </div>
                 @else
-                <div class="mt-4 rounded-xl border border-border bg-white p-4 flex items-center justify-between">
+                <div class="paper-sheet p-5 flex items-center justify-between" style="transform: rotate(0.3deg);">
                     <div>
-                        <div class="text-sm font-semibold text-navy">Pendaftaran Dibuka</div>
-                        <div class="text-xs text-muted-foreground">16 September – 30 September 2026</div>
+                        <div class="font-marker text-lg text-navy">Pendaftaran Dibuka</div>
+                        <div class="text-xs font-semibold text-navy/50 mt-0.5">16 September – 30 September 2026</div>
                     </div>
-                    <a href="{{ route('daftar.index') }}" class="h-9 px-4 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-medium">Daftar →</a>
+                    <a href="{{ route('daftar.index') }}" class="cta-button text-xs py-2 px-4">Daftar →</a>
                 </div>
                 @endif
             </div>
         </div>
     </div>
+
+    {{-- Bottom torn edge --}}
+    <div class="h-4 bg-paper relative" style="clip-path: polygon(0 100%, 100% 100%, 100% 0%, 98% 50%, 96% 10%, 94% 60%, 92% 20%, 90% 70%, 88% 30%, 86% 80%, 84% 15%, 82% 65%, 80% 25%, 78% 75%, 76% 10%, 74% 60%, 72% 30%, 70% 80%, 68% 15%, 66% 65%, 64% 25%, 62% 75%, 60% 10%, 58% 60%, 56% 30%, 54% 80%, 52% 15%, 50% 65%, 48% 25%, 46% 75%, 44% 10%, 42% 60%, 40% 30%, 38% 80%, 36% 15%, 34% 65%, 32% 25%, 30% 75%, 28% 10%, 26% 60%, 24% 30%, 22% 80%, 20% 15%, 18% 65%, 16% 25%, 14% 75%, 12% 10%, 10% 60%, 8% 30%, 6% 80%, 4% 15%, 2% 65%, 0% 0%);"></div>
 </section>
 
 
-{{-- STATS — horizontal, white/off-white, thin separators, no heavy shadow --}}
-<section class="border-y border-border bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border">
-            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
-                <div class="w-10 h-10 rounded-lg bg-primary-50 border border-primary/10 flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128V21a2.25 2.25 0 002.25 2.25h3.75"/><circle cx="10" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-2a4 4 0 014-4h.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"/></svg>
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- STATS STRIP — Editorial Information Band --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+<section class="bg-editorial-navy relative overflow-hidden">
+    {{-- Dot pattern texture --}}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.06]" aria-hidden="true">
+        <img src="{{ asset('asset/textures/dots.svg') }}" alt="" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto">
+        <div class="stats-strip text-white">
+            <div class="relative anim-fade-up delay-1">
+                <div class="mb-2">
+                    <img src="{{ asset('asset/illustrations/participants.svg') }}" alt="" class="w-12 h-10 mx-auto" aria-hidden="true">
                 </div>
-                <div>
-                    <div class="text-xl font-extrabold tracking-tight text-navy">1000+</div>
-                    <div class="text-xs font-medium text-muted-foreground">Peserta Siap Berkompetisi</div>
-                </div>
+                <div class="font-marker text-2xl sm:text-3xl">1000+</div>
+                <div class="text-[10px] sm:text-[11px] font-bold tracking-[0.1em] uppercase text-white/50 mt-1">Peserta Siap Berkompetisi</div>
             </div>
-            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
-                <div class="w-10 h-10 rounded-lg bg-gold-50 border border-gold-100 flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75a3 3 0 01-3-3h15a3 3 0 01-3 3m-9 0v-3.375c0-.621-.503-1.125-1.125-1.125H3.375c-.621 0-1.125.503-1.125 1.125v3.375M3.75 21h.008v.008H3.75V21zm0-3.75h.008v.008H3.75V17.25zM20.25 21h.008v.008H20.25V21zm0-3.75h.008v.008H20.25V17.25z"/></svg>
+
+            <div class="relative anim-fade-up delay-2">
+                <div class="mb-2">
+                    <img src="{{ asset('asset/illustrations/trophy.svg') }}" alt="" class="w-10 h-12 mx-auto" aria-hidden="true">
                 </div>
-                <div>
-                    <div class="text-xl font-extrabold tracking-tight text-navy">20+</div>
-                    <div class="text-xs font-medium text-muted-foreground">Cabang Lomba Menantang</div>
-                </div>
+                <div class="font-marker text-2xl sm:text-3xl">20+</div>
+                <div class="text-[10px] sm:text-[11px] font-bold tracking-[0.1em] uppercase text-white/50 mt-1">Cabang Lomba Menantang</div>
             </div>
-            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
-                <div class="w-10 h-10 rounded-lg bg-primary-50 border border-primary/10 flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
+
+            <div class="relative anim-fade-up delay-3">
+                <div class="mb-2">
+                    <img src="{{ asset('asset/illustrations/gift.svg') }}" alt="" class="w-10 h-10 mx-auto" aria-hidden="true">
                 </div>
-                <div>
-                    <div class="text-sm font-bold tracking-tight text-navy">Hadiah Menarik</div>
-                    <div class="text-xs font-medium text-muted-foreground">Untuk Juara</div>
-                </div>
+                <div class="font-marker text-2xl sm:text-3xl">Hadiah</div>
+                <div class="text-[10px] sm:text-[11px] font-bold tracking-[0.1em] uppercase text-white/50 mt-1">Menarik Untuk Juara</div>
             </div>
-            <div class="flex items-center gap-4 py-6 lg:py-8 px-2 lg:px-6">
-                <div class="w-10 h-10 rounded-lg bg-white border border-border flex items-center justify-center shrink-0">
-                    <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+
+            <div class="relative anim-fade-up delay-4">
+                <div class="mb-2">
+                    <img src="{{ asset('asset/illustrations/shield.svg') }}" alt="" class="w-10 h-12 mx-auto" aria-hidden="true">
                 </div>
-                <div>
-                    <div class="text-sm font-bold tracking-tight text-navy">Fair Play</div>
-                    <div class="text-xs font-medium text-muted-foreground">Sportivitas Terjaga</div>
-                </div>
+                <div class="font-marker text-2xl sm:text-3xl">Fair Play</div>
+                <div class="text-[10px] sm:text-[11px] font-bold tracking-[0.1em] uppercase text-white/50 mt-1">Sportivitas Terjaga</div>
             </div>
         </div>
     </div>
 </section>
+
 
 @if(!$finished)
 
-{{-- KENAPA IKUT — eyebrow, heading, subheading, 4 cards clean --}}
-<section class="py-12 sm:py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="max-w-2xl">
-            <div class="text-xs font-semibold tracking-[0.18em] uppercase text-primary">KENAPA IKUT AKASHI?</div>
-            <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-navy">Empat Alasan Untuk Tampil dan Bersinar</h2>
-            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Jangan lewatkan kesempatan untuk mengembangkan potensi dan meraih prestasi terbaikmu!</p>
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- KENAPA IKUT — Scattered Cards --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+<section class="py-14 sm:py-18 bg-paper relative">
+    {{-- Paper noise texture --}}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03]" aria-hidden="true">
+        <img src="{{ asset('asset/textures/paper-noise.svg') }}" alt="" class="w-full h-full object-cover" style="mix-blend-mode: multiply;">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {{-- Section header — editorial --}}
+        <div class="max-w-2xl mb-10">
+            <div class="sticker sticker-orange mb-3 inline-block anim-fade-up">
+                <img src="{{ asset('asset/doodles/star.svg') }}" alt="" class="w-3 h-3 inline-block -mt-0.5" aria-hidden="true">
+                Kenapa Ikut?
+            </div>
+            <h2 class="font-marker text-3xl sm:text-4xl text-navy leading-tight">Empat Alasan Untuk Tampil dan Bersinar</h2>
+            <p class="mt-3 text-sm leading-relaxed text-navy/60 max-w-[50ch]">Jangan lewatkan kesempatan untuk mengembangkan potensi dan meraih prestasi terbaikmu!</p>
         </div>
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="rounded-xl border bg-white p-5">
-                <div class="w-10 h-10 rounded-lg border bg-primary-50 border-primary/10 flex items-center justify-center text-primary">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
+
+        {{-- Cards — slightly scattered, different rotations --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="paper-sheet p-5 relative anim-fade-up delay-1" style="transform: rotate(-1deg);">
+                <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 right-2 w-12 h-4 opacity-60 rotate-[3deg]" aria-hidden="true">
+                <div class="w-11 h-11 bg-orange/10 border-2 border-orange/20 flex items-center justify-center mb-3" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                    <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
                 </div>
-                <h3 class="mt-4 font-semibold text-sm text-navy">Kembangkan Potensi</h3>
-                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Asah bakat dan kreativitasmu dengan kompetisi yang menantang.</p>
+                <h3 class="font-bold text-sm text-navy">Kembangkan Potensi</h3>
+                <p class="mt-1.5 text-xs leading-relaxed text-navy/55">Asah bakat dan kreativitasmu dengan kompetisi yang menantang.</p>
+                <img src="{{ asset('asset/doodles/scribble.svg') }}" alt="" class="absolute bottom-2 left-2 w-8 h-3 opacity-20" aria-hidden="true">
             </div>
-            <div class="rounded-xl border bg-white p-5">
-                <div class="w-10 h-10 rounded-lg border bg-gold-50 border-gold-100 flex items-center justify-center text-gold-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
+
+            <div class="paper-sheet p-5 relative anim-fade-up delay-2" style="transform: rotate(0.5deg);">
+                <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 left-2 w-12 h-4 opacity-50 rotate-[-2deg]" aria-hidden="true">
+                <div class="w-11 h-11 bg-yellow-light border-2 border-yellow/30 flex items-center justify-center mb-3" style="border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;">
+                    <img src="{{ asset('asset/illustrations/medal.svg') }}" alt="" class="w-6 h-7" aria-hidden="true">
                 </div>
-                <h3 class="mt-4 font-semibold text-sm text-navy">Raih Prestasi</h3>
-                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Menjadi yang terbaik dan mendapatkan pengakuan.</p>
+                <h3 class="font-bold text-sm text-navy">Raih Prestasi</h3>
+                <p class="mt-1.5 text-xs leading-relaxed text-navy/55">Menjadi yang terbaik dan mendapatkan pengakuan.</p>
+                <img src="{{ asset('asset/doodles/star.svg') }}" alt="" class="absolute bottom-2 right-2 w-5 h-5 opacity-15" aria-hidden="true">
             </div>
-            <div class="rounded-xl border bg-white p-5">
-                <div class="w-10 h-10 rounded-lg border bg-primary-50 border-primary/10 flex items-center justify-center text-primary">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+
+            <div class="paper-sheet p-5 relative anim-fade-up delay-3" style="transform: rotate(-0.75deg);">
+                <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 right-3 w-12 h-4 opacity-60 rotate-[1deg]" aria-hidden="true">
+                <div class="w-11 h-11 bg-orange/10 border-2 border-orange/20 flex items-center justify-center mb-3" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                    <img src="{{ asset('asset/illustrations/participants.svg') }}" alt="" class="w-7 h-5" aria-hidden="true">
                 </div>
-                <h3 class="mt-4 font-semibold text-sm text-navy">Bangun Relasi</h3>
-                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Kenalan dan bertukar inspirasi dengan peserta dari sekolah lain.</p>
+                <h3 class="font-bold text-sm text-navy">Bangun Relasi</h3>
+                <p class="mt-1.5 text-xs leading-relaxed text-navy/55">Kenalan dan bertukar inspirasi dengan peserta dari sekolah lain.</p>
             </div>
-            <div class="rounded-xl border bg-white p-5">
-                <div class="w-10 h-10 rounded-lg border bg-gold-50 border-gold-100 flex items-center justify-center text-gold-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75a3 3 0 01-3-3h15a3 3 0 01-3 3m-9 0v-3.375c0-.621-.503-1.125-1.125-1.125H3.375c-.621 0-1.125.503-1.125 1.125v3.375M3.75 21h.008v.008H3.75V21zm0-3.75h.008v.008H3.75V17.25zM20.25 21h.008v.008H20.25V21zm0-3.75h.008v.008H20.25V17.25z"/></svg>
+
+            <div class="paper-sheet p-5 relative anim-fade-up delay-4" style="transform: rotate(1deg);">
+                <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 left-3 w-12 h-4 opacity-50 rotate-[-3deg]" aria-hidden="true">
+                <div class="w-11 h-11 bg-yellow-light border-2 border-yellow/30 flex items-center justify-center mb-3" style="border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;">
+                    <img src="{{ asset('asset/illustrations/shield.svg') }}" alt="" class="w-6 h-7" aria-hidden="true">
                 </div>
-                <h3 class="mt-4 font-semibold text-sm text-navy">Pengalaman Berharga</h3>
-                <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Tumbuh lebih percaya diri dan siap menghadapi tantangan masa depan.</p>
+                <h3 class="font-bold text-sm text-navy">Pengalaman Berharga</h3>
+                <p class="mt-1.5 text-xs leading-relaxed text-navy/55">Tumbuh lebih percaya diri dan siap menghadapi tantangan masa depan.</p>
+                <img src="{{ asset('asset/doodles/circle.svg') }}" alt="" class="absolute bottom-2 left-3 w-5 h-5 opacity-10" aria-hidden="true">
             </div>
         </div>
     </div>
 </section>
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="h-px bg-border"></div></div>
 
-
-{{-- LOMBA — bento: featured + grid --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- LOMBA — Editorial Grid --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
 @if($competitions->count())
-<section class="py-10 sm:py-14">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="flex items-end justify-between gap-4 mb-6">
+<section class="py-14 sm:py-18 bg-paper relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4 mb-8">
             <div>
-                <h2 class="text-xl sm:text-2xl font-semibold tracking-tight">Lomba</h2>
-                <p class="text-sm text-muted-foreground mt-1">Pilih lomba yang paling kamu minati.</p>
+                <div class="sticker sticker-navy mb-3 inline-block">Lomba</div>
+                <h2 class="font-marker text-3xl sm:text-4xl text-navy">Pilih Lomba Favoritmu</h2>
+                <p class="text-sm text-navy/55 mt-2">Pilih lomba yang paling kamu minati.</p>
             </div>
-            <a href="{{ route('lomba.index') }}" class="hidden sm:inline-flex h-9 px-4 rounded-md border bg-background text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors">Lihat Semua</a>
+            <a href="{{ route('lomba.index') }}" class="editorial-link text-sm font-bold text-navy/70 hidden sm:inline-flex">Lihat Semua →</a>
         </div>
 
         @php $all = $competitions->take(6); $featuredLomba = $all->first(); $rest = $all->slice(1); @endphp
-        <div class="grid lg:grid-cols-3 gap-4">
+        <div class="grid lg:grid-cols-3 gap-5">
             {{-- Featured --}}
             @if($featuredLomba)
-            <a href="{{ route('lomba.show', $featuredLomba->slug) }}" class="group lg:row-span-2 flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:border-primary/20 hover:border-primary/20 transition-all">
-                <div class="h-44 lg:h-[220px] bg-primary-50 relative overflow-hidden flex items-center justify-center">
+            <a href="{{ route('lomba.show', $featuredLomba->slug) }}" class="group lg:row-span-2 flex flex-col overflow-hidden paper-sheet relative anim-fade-up" style="transform: rotate(-0.5deg);">
+                <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 left-6 w-16 h-5 z-10 opacity-70 rotate-[-2deg]" aria-hidden="true">
+                <div class="h-44 lg:h-[220px] bg-orange/5 relative overflow-hidden flex items-center justify-center border-b-2 border-navy/5">
                     @if($featuredLomba->cover_url)
                         <img src="{{ asset('storage/' . $featuredLomba->cover_url) }}" alt="{{ $featuredLomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                     @else
-                        <svg class="w-14 h-14 text-white/20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871"/></svg>
+                        <img src="{{ asset('asset/illustrations/trophy.svg') }}" alt="" class="w-14 h-16 opacity-15" aria-hidden="true">
                     @endif
-                    <span class="absolute top-3 right-3 inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold {{ $featuredLomba->status === 'OPEN' ? 'bg-green-500 text-white' : 'bg-muted text-muted-foreground' }}">{{ $featuredLomba->status === 'OPEN' ? 'Buka' : 'Tutup' }}</span>
+                    <span class="absolute top-3 right-3 inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide {{ $featuredLomba->status === 'OPEN' ? 'bg-green text-navy' : 'bg-navy/10 text-navy/50' }}" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">{{ $featuredLomba->status === 'OPEN' ? 'Buka' : 'Tutup' }}</span>
                 </div>
                 <div class="p-5 flex flex-col flex-1">
-                    <span class="inline-flex w-fit rounded-md bg-secondary px-2 py-1 text-[11px] font-medium text-secondary-foreground">{{ $featuredLomba->category }}</span>
-                    <h3 class="font-semibold leading-tight mt-2 group-hover:text-primary transition-colors">{{ $featuredLomba->name }}</h3>
-                    <p class="text-sm text-muted-foreground line-clamp-2 mt-1 flex-1">{{ $featuredLomba->description }}</p>
-                    <span class="text-sm font-medium text-primary mt-4 inline-flex items-center gap-1 group-hover:underline underline-offset-4">Lihat Detail →</span>
+                    <span class="inline-flex w-fit bg-yellow-light border border-yellow/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy/60">{{ $featuredLomba->category }}</span>
+                    <h3 class="font-bold text-base leading-tight mt-2 text-navy group-hover:text-orange transition-colors">{{ $featuredLomba->name }}</h3>
+                    <p class="text-xs text-navy/50 line-clamp-2 mt-1.5 flex-1 leading-relaxed">{{ $featuredLomba->description }}</p>
+                    <span class="text-sm font-bold text-orange mt-4 inline-flex items-center gap-1 group-hover:underline underline-offset-4">Lihat Detail →</span>
                 </div>
             </a>
             @endif
+
             {{-- Rest 2x2 + 1 --}}
-            <div class="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+            <div class="lg:col-span-2 grid sm:grid-cols-2 gap-5">
                 @foreach($rest as $lomba)
-                <a href="{{ route('lomba.show', $lomba->slug) }}" class="group flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm hover:border-primary/20 hover:border-primary/20 transition-all">
-                    <div class="h-28 bg-primary-50 relative overflow-hidden flex items-center justify-center">
+                <a href="{{ route('lomba.show', $lomba->slug) }}" class="group flex flex-col overflow-hidden paper-sheet relative anim-fade-up" style="transform: rotate({{ $loop->index % 2 === 0 ? '0.3' : '-0.4' }}deg);">
+                    <div class="h-28 bg-orange/5 relative overflow-hidden flex items-center justify-center border-b-2 border-navy/5">
                         @if($lomba->cover_url)
                             <img src="{{ asset('storage/' . $lomba->cover_url) }}" alt="{{ $lomba->name }}" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                         @else
-                            <svg class="w-10 h-10 text-white/20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3"/></svg>
+                            <img src="{{ asset('asset/illustrations/trophy.svg') }}" alt="" class="w-10 h-12 opacity-15" aria-hidden="true">
                         @endif
-                        <span class="absolute top-2 right-2 rounded-full px-2 py-0.5 text-[10px] font-semibold {{ $lomba->status === 'OPEN' ? 'bg-green-500 text-white' : 'bg-muted text-muted-foreground' }}">{{ $lomba->status === 'OPEN' ? 'Buka' : 'Tutup' }}</span>
+                        <span class="absolute top-2 right-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide {{ $lomba->status === 'OPEN' ? 'bg-green text-navy' : 'bg-navy/10 text-navy/50' }}" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">{{ $lomba->status === 'OPEN' ? 'Buka' : 'Tutup' }}</span>
                     </div>
                     <div class="p-4 flex flex-col flex-1">
-                        <span class="inline-flex w-fit rounded-md bg-secondary px-2 py-0.5 text-[10px] font-medium text-secondary-foreground">{{ $lomba->category }}</span>
-                        <h3 class="font-medium text-sm leading-tight mt-2 group-hover:text-primary transition-colors line-clamp-1">{{ $lomba->name }}</h3>
-                        <p class="text-xs text-muted-foreground line-clamp-2 mt-1 flex-1">{{ $lomba->description }}</p>
+                        <span class="inline-flex w-fit bg-yellow-light border border-yellow/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-navy/60">{{ $lomba->category }}</span>
+                        <h3 class="font-bold text-sm leading-tight mt-2 text-navy group-hover:text-orange transition-colors line-clamp-1">{{ $lomba->name }}</h3>
+                        <p class="text-xs text-navy/50 line-clamp-2 mt-1 flex-1 leading-relaxed">{{ $lomba->description }}</p>
                     </div>
                 </a>
                 @endforeach
             </div>
         </div>
-        <div class="sm:hidden mt-4">
-            <a href="{{ route('lomba.index') }}" class="inline-flex w-full justify-center h-10 items-center rounded-md border bg-background text-sm font-medium">Lihat Semua Lomba</a>
+
+        <div class="sm:hidden mt-5">
+            <a href="{{ route('lomba.index') }}" class="inline-flex w-full justify-center h-11 items-center border-2 border-navy/20 text-sm font-bold text-navy/70 hover:bg-navy/5 transition-colors" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">Lihat Semua Lomba</a>
         </div>
     </div>
 </section>
 @endif
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="h-px bg-border"></div></div>
 
-{{-- HADIAH — podium contained --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- HADIAH — Editorial Podium --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
 @php
     $featured = $competitions->firstWhere('slug', 'olimpiade-ipas') ?? $competitions->first();
     $formatPrizeParts = fn($raw) => $raw ? array_filter(array_map('trim', explode('+', $raw))) : [];
@@ -287,156 +386,172 @@
     $isPrizeRp = fn($part) => str_starts_with(trim($part), 'Rp');
 @endphp
 @if($featured && ($featured->prize_1 || $featured->prize_2 || $featured->prize_3))
-<section class="py-10 sm:py-14">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="rounded-xl border bg-card shadow-sm p-6 sm:p-8">
-            <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
-                <div>
-                    <h2 class="text-xl font-semibold tracking-tight">Hadiah Pemenang</h2>
-                    <p class="text-sm text-muted-foreground mt-1">{{ $featured->name }} — podium hadiah.</p>
-                </div>
-                <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-100 text-amber-700 px-3 py-1 text-xs font-semibold">Total Jutaan Rupiah</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end max-w-4xl mx-auto">
-                @foreach([2,1,3] as $place)
-                    @php
-                        $parts = $prizes[$place] ?? [];
-                        if (empty($parts)) continue;
-                        $cfg = [
-                            1=>['order'=>'order-1 sm:order-2','bg'=>'bg-gradient-to-b from-amber-50 to-white','border'=>'border-amber-200','iconBg'=>'bg-amber-500','money'=>'text-amber-700','label'=>'JUARA 1','icon'=>'<path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/>'],
-                            2=>['order'=>'order-2 sm:order-1','bg'=>'bg-card','border'=>'border-slate-200','iconBg'=>'bg-slate-400','money'=>'text-slate-700','label'=>'JUARA 2','icon'=>'<path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/>'],
-                            3=>['order'=>'order-3','bg'=>'bg-card','border'=>'border-orange-200','iconBg'=>'bg-orange-500','money'=>'text-orange-700','label'=>'JUARA 3','icon'=>'<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>'],
-                        ][$place];
-                    @endphp
-                    <div class="order-{{ $place === 1 ? '1 sm:order-2' : ($place === 2 ? '2 sm:order-1' : '3') }} {{ $cfg['bg'] }} rounded-xl border {{ $cfg['border'] }} p-5 text-center {{ $place===1 ? 'sm:-translate-y-2 shadow-md' : 'shadow-sm' }}">
-                        {{-- Lucide (ISC, lucide.dev): crown / trophy / award --}}
-                        <div class="w-12 h-12 {{ $cfg['iconBg'] }} rounded-xl flex items-center justify-center mx-auto mb-3 text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-                                {!! $cfg['icon'] !!}
-                            </svg>
-                        </div>
-                        <div class="text-[11px] font-bold tracking-widest text-muted-foreground mb-2">{{ $cfg['label'] }}</div>
-                        <div class="space-y-1.5">
-                            @foreach($parts as $part)
-                                @if($isPrizeRp($part))
-                                    <div class="text-lg font-bold {{ $cfg['money'] }}">{{ $part }}</div>
-                                @else
-                                    <span class="inline-flex items-center rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">{{ $part }}</span>
-                                @endif
-                            @endforeach
-                        </div>
+<section class="py-14 sm:py-18 bg-paper relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {{-- Tape decoration --}}
+        <div class="relative inline-block mb-6">
+            <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 left-2 w-20 h-6 z-10 opacity-70 rotate-[-2deg]" aria-hidden="true">
+            <div class="paper-sheet p-6 sm:p-8 relative" style="transform: rotate(-0.3deg);">
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="font-marker text-3xl text-navy">Hadiah Pemenang</h2>
+                        <p class="text-sm text-navy/55 mt-1">{{ $featured->name }} — podium hadiah.</p>
                     </div>
-                @endforeach
+                    <span class="sticker sticker-yellow">Total Jutaan Rupiah</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end max-w-4xl mx-auto">
+                    @foreach([2,1,3] as $place)
+                        @php
+                            $parts = $prizes[$place] ?? [];
+                            if (empty($parts)) continue;
+                            $cfg = [
+                                1=>['order'=>'order-1 sm:order-2','bg'=>'bg-yellow-light','border'=>'border-yellow/40','iconBg'=>'bg-orange','money'=>'text-orange','label'=>'JUARA 1','icon'=>'trophy'],
+                                2=>['order'=>'order-2 sm:order-1','bg'=>'bg-white','border'=>'border-navy/15','iconBg'=>'bg-navy/20','money'=>'text-navy/70','label'=>'JUARA 2','icon'=>'medal'],
+                                3=>['order'=>'order-3','bg'=>'bg-white','border'=>'border-orange/20','iconBg'=>'bg-orange/70','money'=>'text-orange/80','label'=>'JUARA 3','icon'=>'crown'],
+                            ][$place];
+                        @endphp
+                        <div class="order-{{ $place === 1 ? '1 sm:order-2' : ($place === 2 ? '2 sm:order-1' : '3') }} {{ $cfg['bg'] }} border-2 {{ $cfg['border'] }} p-5 text-center {{ $place===1 ? 'sm:-translate-y-2' : '' }}" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                            <div class="w-12 h-12 {{ $cfg['iconBg'] }} flex items-center justify-center mx-auto mb-3" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                                @if($cfg['icon'] === 'trophy')
+                                    <img src="{{ asset('asset/illustrations/trophy.svg') }}" alt="" class="w-8 h-9" aria-hidden="true">
+                                @elseif($cfg['icon'] === 'medal')
+                                    <img src="{{ asset('asset/illustrations/medal.svg') }}" alt="" class="w-7 h-8" aria-hidden="true">
+                                @else
+                                    <img src="{{ asset('asset/doodles/crown.svg') }}" alt="" class="w-7 h-5" aria-hidden="true">
+                                @endif
+                            </div>
+                            <div class="font-marker text-lg text-navy mb-2">{{ $cfg['label'] }}</div>
+                            <div class="space-y-1.5">
+                                @foreach($parts as $part)
+                                    @if($isPrizeRp($part))
+                                        <div class="text-lg font-bold {{ $cfg['money'] }}">{{ $part }}</div>
+                                    @else
+                                        <span class="inline-flex items-center bg-yellow-light border border-yellow/30 px-2.5 py-1 text-xs font-bold text-navy/60">{{ $part }}</span>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                @if($featured->prize_extra)
+                    <p class="text-center mt-6">
+                        <span class="sticker sticker-orange text-[11px]">
+                            Bonus: {{ $featured->prize_extra }}
+                        </span>
+                    </p>
+                @endif
             </div>
-            @if($featured->prize_extra)
-                <p class="text-center mt-6"><span class="inline-flex items-center rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-medium">🎁 Bonus: {{ $featured->prize_extra }}</span></p>
-            @endif
         </div>
     </div>
 </section>
 @endif
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="h-px bg-border"></div></div>
 
-{{-- JADWAL + KEGIATAN — 2 kolom shadcn --}}
-<section class="py-10 sm:py-14">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-6">
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- JADWAL + KEGIATAN — Two-column editorial --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+<section class="py-14 sm:py-18 bg-paper relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-6">
         {{-- Jadwal --}}
-        <div class="rounded-xl border bg-card shadow-sm">
-            <div class="p-5 border-b">
-                <h2 class="font-semibold tracking-tight">Jadwal Penting</h2>
-                <p class="text-sm text-muted-foreground">Linimasa AKASHI 2026</p>
+        <div class="paper-sheet relative" style="transform: rotate(-0.3deg);">
+            <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 left-4 w-16 h-5 z-10 opacity-70 rotate-[-2deg]" aria-hidden="true">
+            <div class="p-5 border-b-2 border-navy/5">
+                <h2 class="font-marker text-2xl text-navy">Jadwal Penting</h2>
+                <p class="text-xs text-navy/50 mt-1">Linimasa AKASHI 2026</p>
             </div>
             <div class="p-5">
                 @if($schedules->count())
-                <div class="relative pl-6 border-l">
+                <div class="relative pl-6 border-l-2 border-dashed border-navy/15">
                     @foreach($schedules as $jadwal)
                     <div class="relative pb-6 last:pb-0">
-                        <span class="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-primary ring-4 ring-background"></span>
-                        <div class="text-xs font-medium text-primary">{{ $jadwal->date->translatedFormat('d F Y') }}</div>
-                        <div class="font-medium text-sm mt-0.5">{{ $jadwal->title }}</div>
-                        @if($jadwal->note)<div class="text-sm text-muted-foreground mt-1">{{ $jadwal->note }}</div>@endif
+                        <span class="absolute -left-[27px] top-1 w-3 h-3 bg-orange border-2 border-paper" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;"></span>
+                        <div class="text-[11px] font-bold text-orange uppercase tracking-wide">{{ $jadwal->date->translatedFormat('d F Y') }}</div>
+                        <div class="font-bold text-sm mt-0.5 text-navy">{{ $jadwal->title }}</div>
+                        @if($jadwal->note)<div class="text-xs text-navy/50 mt-1 leading-relaxed">{{ $jadwal->note }}</div>@endif
                     </div>
                     @endforeach
                 </div>
                 @else
-                <p class="text-sm text-muted-foreground">Belum ada jadwal.</p>
+                <p class="text-sm text-navy/45">Belum ada jadwal.</p>
                 @endif
             </div>
         </div>
 
         {{-- Kegiatan --}}
-        <div class="rounded-xl border bg-card shadow-sm">
-            <div class="p-5 border-b flex items-center justify-between">
+        <div class="paper-sheet relative" style="transform: rotate(0.4deg);">
+            <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 right-6 w-16 h-5 z-10 opacity-60 rotate-[2deg]" aria-hidden="true">
+            <div class="p-5 border-b-2 border-navy/5 flex items-center justify-between">
                 <div>
-                    <h2 class="font-semibold tracking-tight">Kegiatan Seru</h2>
-                    <p class="text-sm text-muted-foreground">Selain lomba, ada ini!</p>
+                    <h2 class="font-marker text-2xl text-navy">Kegiatan Seru</h2>
+                    <p class="text-xs text-navy/50 mt-1">Selain lomba, ada ini!</p>
                 </div>
             </div>
             <div class="p-5 grid gap-3">
                 @php
                     $activityIcons = [
-                        'Gelar Karya' => ['bg' => 'bg-violet-100', 'color' => 'text-violet-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>', 'src' => 'lucide:palette'],
-                        'Talkshow' => ['bg' => 'bg-cyan-100', 'color' => 'text-cyan-600', 'icon' => '<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>', 'src' => 'lucide:book-open'],
-                        'Bazar' => ['bg' => 'bg-amber-100', 'color' => 'text-amber-600', 'icon' => '<path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/>', 'src' => 'lucide:store'],
-                        'Dolanan' => ['bg' => 'bg-emerald-100', 'color' => 'text-emerald-600', 'icon' => '<rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/>', 'src' => 'lucide:dices'],
-                        'Membatik' => ['bg' => 'bg-orange-100', 'color' => 'text-orange-600', 'icon' => '<path d="m11 10 3 3"/><path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"/><path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"/>', 'src' => 'lucide:brush'],
+                        'Gelar Karya' => ['bg' => 'bg-purple/10', 'color' => 'text-purple', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>', 'src' => 'lucide:palette'],
+                        'Talkshow' => ['bg' => 'bg-orange/10', 'color' => 'text-orange', 'icon' => '<path d="M12 5v16"/><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z"/>', 'src' => 'lucide:book-open'],
+                        'Bazar' => ['bg' => 'bg-yellow-light', 'color' => 'text-gold-700', 'icon' => '<path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/>', 'src' => 'lucide:store'],
+                        'Dolanan' => ['bg' => 'bg-green-light', 'color' => 'text-green', 'icon' => '<rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/>', 'src' => 'lucide:dices'],
+                        'Membatik' => ['bg' => 'bg-orange/10', 'color' => 'text-orange', 'icon' => '<path d="m11 10 3 3"/><path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"/><path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"/>', 'src' => 'lucide:brush'],
                     ];
                     $getActivityStyle = function($name) use ($activityIcons) {
                         foreach ($activityIcons as $key => $style) {
                             if (str_contains($name, $key)) return $style;
                         }
-                        return ['bg' => 'bg-primary-100', 'color' => 'text-primary-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>'];
+                        return ['bg' => 'bg-orange/10', 'color' => 'text-orange', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>'];
                     };
                 @endphp
                 @forelse($activities as $kegiatan)
                 @php $style = $getActivityStyle($kegiatan->name); @endphp
-                <div class="flex gap-3 rounded-lg border p-3 hover:bg-muted/50 transition-colors group">
-                    <div class="w-11 h-11 rounded-xl {{ $style['bg'] }} flex-shrink-0 flex items-center justify-center overflow-hidden">
+                <div class="flex gap-3 p-3 hover:bg-navy/[0.02] transition-colors group" style="border: 2px solid transparent; border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                    <div class="w-11 h-11 {{ $style['bg'] }} flex-shrink-0 flex items-center justify-center overflow-hidden" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
                         @if($kegiatan->image_url)
                             <img src="{{ $kegiatan->image_url }}" alt="{{ $kegiatan->name }}" class="w-full h-full object-cover">
                         @else
-                            {{-- Lucide icons (ISC, lucide.dev) --}}
                             <svg class="w-[22px] h-[22px] {{ $style['color'] }}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
                                 {!! $style['icon'] !!}
                             </svg>
                         @endif
                     </div>
                     <div class="min-w-0 flex-1">
-                        <div class="font-medium text-sm leading-tight truncate group-hover:text-primary transition-colors">{{ $kegiatan->name }}</div>
-                        @if($kegiatan->description)<div class="text-xs text-muted-foreground line-clamp-2 mt-0.5">{{ $kegiatan->description }}</div>@endif
-                        <div class="text-xs text-muted-foreground mt-1 flex items-center gap-2">
+                        <div class="font-bold text-sm leading-tight truncate group-hover:text-orange transition-colors">{{ $kegiatan->name }}</div>
+                        @if($kegiatan->description)<div class="text-xs text-navy/50 line-clamp-2 mt-0.5 leading-relaxed">{{ $kegiatan->description }}</div>@endif
+                        <div class="text-[11px] text-navy/40 mt-1 flex items-center gap-2 font-semibold">
                             @if($kegiatan->date)<span>{{ $kegiatan->date->translatedFormat('d M Y') }}</span>@endif
                             @if($kegiatan->location)<span>· {{ $kegiatan->location }}</span>@endif
                         </div>
                     </div>
                 </div>
                 @empty
-                <p class="text-sm text-muted-foreground">Belum ada kegiatan.</p>
+                <p class="text-sm text-navy/45">Belum ada kegiatan.</p>
                 @endforelse
             </div>
         </div>
     </div>
 </section>
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6"><div class="h-px bg-border"></div></div>
 
-{{-- FAQ — shadcn Accordion (single open) --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- FAQ — Editorial Accordion --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
 @if($faqs->count())
-<section class="py-10 sm:py-14">
+<section class="py-14 sm:py-18 bg-paper relative">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-6">
-            <h2 class="text-xl font-semibold tracking-tight">FAQ</h2>
-            <p class="text-sm text-muted-foreground mt-1">Pertanyaan yang sering ditanyakan</p>
+        <div class="text-center mb-8">
+            <div class="sticker sticker-navy mb-3 inline-block">FAQ</div>
+            <h2 class="font-marker text-3xl text-navy">Pertanyaan yang Sering Ditanyakan</h2>
         </div>
-        <div class="rounded-xl border bg-card divide-y">
+        <div class="space-y-3">
             @foreach($faqs as $i => $faq)
-            <div class="faq-item">
-                <button onclick="toggleFaq({{ $i }})" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-muted/50 transition-colors">
-                    <span class="font-medium text-sm pr-2">{{ $faq->question }}</span>
-                    <svg id="faq-icon-{{ $i }}" class="w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            <div class="faq-item paper-sheet" style="transform: rotate({{ $loop->index % 2 === 0 ? '-0.2' : '0.3' }}deg);">
+                <button onclick="toggleFaq({{ $i }})" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-navy/[0.02] transition-colors">
+                    <span class="font-bold text-sm text-navy pr-2">{{ $faq->question }}</span>
+                    <svg id="faq-icon-{{ $i }}" class="w-4 h-4 text-navy/40 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
                 </button>
-                <div id="faq-content-{{ $i }}" class="hidden px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
+                <div id="faq-content-{{ $i }}" class="hidden px-5 pb-4 text-sm text-navy/60 leading-relaxed">
                     {!! nl2br(e($faq->answer)) !!}
                 </div>
             </div>
@@ -446,44 +561,95 @@
 </section>
 @endif
 
-{{-- CTA — contained card --}}
-<section class="pb-10 sm:pb-14">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="rounded-xl border bg-primary text-primary-foreground p-7 sm:p-10 text-center relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="absolute -top-16 -right-16 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-            </div>
-            <div class="relative">
-                <h2 class="text-2xl font-semibold tracking-tight">Siap Tampil?</h2>
-                <p class="text-sm text-primary-foreground/80 mt-2 max-w-md mx-auto">Daftarkan dirimu sekarang dan jadilah bagian dari AKASHI 2026!</p>
-                <a href="{{ route('daftar.index') }}" class="mt-6 inline-flex h-10 items-center justify-center rounded-md bg-white px-6 text-sm font-medium text-primary shadow hover:bg-white/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white transition-colors">
-                    Daftar Sekarang
-                </a>
+
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+{{-- CTA — Full-width editorial banner --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
+<section class="py-14 sm:py-18 relative overflow-hidden bg-editorial-navy">
+    {{-- Grid pattern --}}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.04]" aria-hidden="true">
+        <img src="{{ asset('asset/textures/grid-paper.svg') }}" alt="" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {{-- Tape piece --}}
+        <div class="inline-block relative mb-6">
+            <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 z-10 opacity-60" style="transform: translateX(-50%) rotate(-1deg);" aria-hidden="true">
+            <div class="paper-sheet px-8 py-4 text-center" style="transform: rotate(-0.5deg);">
+                <h2 class="font-marker text-3xl sm:text-4xl text-navy">Siap Tampil?</h2>
             </div>
         </div>
+        <p class="text-white/60 text-sm max-w-md mx-auto mt-2 leading-relaxed">Daftarkan dirimu sekarang dan jadilah bagian dari AKASHI 2026!</p>
+        <div class="mt-8">
+            <a href="{{ route('daftar.index') }}" class="cta-button cta-button-white text-base">
+                Daftar Sekarang
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L6 6m0 0l6 6m-6-6v12"/></svg>
+            </a>
+        </div>
+
+        {{-- Decorative doodles --}}
+        <img src="{{ asset('asset/doodles/star.svg') }}" alt="" class="absolute top-8 left-8 w-8 h-8 opacity-15 rotate-[15deg] hidden lg:block" aria-hidden="true">
+        <img src="{{ asset('asset/doodles/circle.svg') }}" alt="" class="absolute bottom-8 right-12 w-6 h-6 opacity-10 -rotate-[20deg] hidden lg:block" aria-hidden="true">
+        <img src="{{ asset('asset/doodles/scribble.svg') }}" alt="" class="absolute bottom-4 left-[15%] w-24 h-6 opacity-10 hidden lg:block" aria-hidden="true">
     </div>
 </section>
 
 @else
 
+{{-- ═══════════════════════════════════════════════════════════════ --}}
 {{-- FINISHED STATE --}}
+{{-- ═══════════════════════════════════════════════════════════════ --}}
 @if(isset($announcements) && $announcements->count())
-<section class="py-10 sm:py-14">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+<section class="py-14 sm:py-18 bg-paper relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8">
-            <h2 class="text-2xl font-semibold tracking-tight">Para Juara</h2>
-            <p class="text-sm text-muted-foreground mt-1">Selamat kepada seluruh pemenang!</p>
+            <div class="sticker sticker-orange mb-3 inline-block">Juara</div>
+            <h2 class="font-marker text-3xl sm:text-4xl text-navy">Para Juara</h2>
+            <p class="text-sm text-navy/55 mt-2">Selamat kepada seluruh pemenang!</p>
         </div>
+
         @foreach($announcements as $pengumuman)
-        <div class="rounded-xl border bg-card shadow-sm p-6 mb-6">
-            <h3 class="font-medium">{{ $pengumuman->title }}</h3>
-            @if($pengumuman->competition)<div class="text-sm text-muted-foreground">{{ $pengumuman->competition->name }}</div>@endif
+        <div class="paper-sheet p-6 mb-6 relative" style="transform: rotate({{ $loop->index % 2 === 0 ? '-0.3' : '0.2' }}deg);">
+            <img src="{{ asset('asset/ui/tape-yellow.svg') }}" alt="" class="absolute -top-3 left-6 w-16 h-5 z-10 opacity-70 rotate-[-2deg]" aria-hidden="true">
+            <h3 class="font-bold text-navy">{{ $pengumuman->title }}</h3>
+            @if($pengumuman->competition)<div class="text-sm text-navy/50">{{ $pengumuman->competition->name }}</div>@endif
+
             @if($pengumuman->winners->count())
             <div class="grid sm:grid-cols-3 gap-4 mt-6 max-w-3xl mx-auto items-end">
                 @php $s=$pengumuman->winners->where('place',2)->first(); $g=$pengumuman->winners->where('place',1)->first(); $b=$pengumuman->winners->where('place',3)->first(); @endphp
-                @if($s)<div class="rounded-xl border bg-card p-5 text-center order-2 sm:order-1 shadow-sm"><div class="w-10 h-10 bg-slate-400 rounded-xl flex items-center justify-center mx-auto text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3"/><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3"/><path d="M4 22h16"/><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2"/><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2"/></svg></div><div class="font-medium text-sm mt-2">{{ $s->participant_name }}</div><div class="text-xs text-muted-foreground">{{ $s->school }}</div></div>@endif
-                @if($g)<div class="rounded-xl border-2 border-amber-200 bg-amber-50 p-5 text-center order-1 sm:order-2 sm:-translate-y-2 shadow-md"><div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl flex items-center justify-center mx-auto text-white shadow-sm"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg></div><div class="font-medium text-sm mt-2">{{ $g->participant_name }}</div><div class="text-xs text-muted-foreground">{{ $g->school }}</div></div>@endif
-                @if($b)<div class="rounded-xl border bg-card p-5 text-center order-3 shadow-sm"><div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center mx-auto text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg></div><div class="font-medium text-sm mt-2">{{ $b->participant_name }}</div><div class="text-xs text-muted-foreground">{{ $b->school }}</div></div>@endif
+
+                @if($s)
+                <div class="paper-sheet p-5 text-center order-2 sm:order-1" style="transform: rotate(0.5deg);">
+                    <div class="w-10 h-10 bg-navy/20 flex items-center justify-center mx-auto" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                        <img src="{{ asset('asset/illustrations/medal.svg') }}" alt="" class="w-7 h-8" aria-hidden="true">
+                    </div>
+                    <div class="font-marker text-base text-navy mt-2">Juara 2</div>
+                    <div class="font-bold text-sm text-navy mt-1">{{ $s->participant_name }}</div>
+                    <div class="text-xs text-navy/50">{{ $s->school }}</div>
+                </div>
+                @endif
+
+                @if($g)
+                <div class="bg-yellow-light border-2 border-yellow/40 p-5 text-center order-1 sm:order-2 sm:-translate-y-2" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                    <div class="w-12 h-12 bg-orange flex items-center justify-center mx-auto text-white" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                        <img src="{{ asset('asset/illustrations/trophy.svg') }}" alt="" class="w-8 h-9" aria-hidden="true">
+                    </div>
+                    <div class="sticker sticker-orange text-[9px] mt-2 mb-1">Juara 1</div>
+                    <div class="font-bold text-sm text-navy">{{ $g->participant_name }}</div>
+                    <div class="text-xs text-navy/50">{{ $g->school }}</div>
+                </div>
+                @endif
+
+                @if($b)
+                <div class="paper-sheet p-5 text-center order-3" style="transform: rotate(-0.5deg);">
+                    <div class="w-10 h-10 bg-orange/70 flex items-center justify-center mx-auto text-white" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                        <img src="{{ asset('asset/doodles/crown.svg') }}" alt="" class="w-6 h-4" aria-hidden="true">
+                    </div>
+                    <div class="font-marker text-base text-navy mt-2">Juara 3</div>
+                    <div class="font-bold text-sm text-navy mt-1">{{ $b->participant_name }}</div>
+                    <div class="text-xs text-navy/50">{{ $b->school }}</div>
+                </div>
+                @endif
             </div>
             @endif
         </div>
@@ -500,14 +666,25 @@
 @if(!$finished && ($settings['event_date'] ?? null))
 <script>
 (function(){
-    const target=new Date('{{ $settings["event_date"] }}T23:59:59').getTime();
+    var target=new Date('{{ $settings["event_date"] }}T23:59:59').getTime();
     function upd(){
-        const d=target-Date.now();
-        if(d<=0){['cd-days','cd-hours','cd-minutes','cd-seconds'].forEach(id=>document.getElementById(id).textContent='00');return;}
-        document.getElementById('cd-days').textContent=String(Math.floor(d/86400000)).padStart(2,'0');
-        document.getElementById('cd-hours').textContent=String(Math.floor(d%86400000/3600000)).padStart(2,'0');
-        document.getElementById('cd-minutes').textContent=String(Math.floor(d%3600000/60000)).padStart(2,'0');
-        document.getElementById('cd-seconds').textContent=String(Math.floor(d%60000/1000)).padStart(2,'0');
+        var d=target-Date.now();
+        if(d<=0){
+            var ids=['cd-days','cd-hours','cd-minutes','cd-seconds'];
+            for(var i=0;i<ids.length;i++){
+                var el=document.getElementById(ids[i]);
+                if(el) el.textContent='00';
+            }
+            return;
+        }
+        var daysEl=document.getElementById('cd-days');
+        var hoursEl=document.getElementById('cd-hours');
+        var minEl=document.getElementById('cd-minutes');
+        var secEl=document.getElementById('cd-seconds');
+        if(daysEl) daysEl.textContent=String(Math.floor(d/86400000)).padStart(2,'0');
+        if(hoursEl) hoursEl.textContent=String(Math.floor(d%86400000/3600000)).padStart(2,'0');
+        if(minEl) minEl.textContent=String(Math.floor(d%3600000/60000)).padStart(2,'0');
+        if(secEl) secEl.textContent=String(Math.floor(d%60000/1000)).padStart(2,'0');
     }
     upd(); setInterval(upd,1000);
 })();
@@ -515,10 +692,12 @@
 @endif
 <script>
 function toggleFaq(i){
-    const c=document.getElementById('faq-content-'+i), ic=document.getElementById('faq-icon-'+i);
-    const isHidden=c.classList.contains('hidden');
-    document.querySelectorAll('[id^="faq-content-"]').forEach(el=>el.classList.add('hidden'));
-    document.querySelectorAll('[id^="faq-icon-"]').forEach(el=>el.style.transform='');
+    var c=document.getElementById('faq-content-'+i), ic=document.getElementById('faq-icon-'+i);
+    var isHidden=c.classList.contains('hidden');
+    var allContents=document.querySelectorAll('[id^="faq-content-"]');
+    var allIcons=document.querySelectorAll('[id^="faq-icon-"]');
+    for(var j=0;j<allContents.length;j++) allContents[j].classList.add('hidden');
+    for(var j=0;j<allIcons.length;j++) allIcons[j].style.transform='';
     if(isHidden){ c.classList.remove('hidden'); ic.style.transform='rotate(180deg)'; }
 }
 </script>
