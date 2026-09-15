@@ -169,7 +169,7 @@
             </div>
         </div>
 
-        <!-- Gambar Sampul -->
+                <!-- Gambar Sampul -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <h3 class="text-lg font-semibold text-gray-800 mb-4">Gambar Sampul</h3>
             <div>
@@ -184,6 +184,23 @@
                        class="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
                 <p class="text-xs text-gray-400 mt-1">Format: JPG, PNG. Maks 2MB.</p>
             </div>
+        </div>
+
+        <!-- Template Sertifikat (mode per_lomba) -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Template Sertifikat</h3>
+            <p class="text-xs text-gray-400 mb-3">Aktif saat mode Per Lomba. Kosongkan = ikut template global.</p>
+            <div class="mb-3">
+                @if(!empty($lomba->certificate_template))
+                    <div class="mb-2">
+                        <img src="{{ asset('storage/' . $lomba->certificate_template) }}" alt="Template" class="w-full h-32 object-cover rounded-xl border border-gray-200">
+                    </div>
+                @endif
+                <input type="file" name="certificate_template" accept="image/*" data-cert-preview="lomba"
+                       class="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                <p class="text-xs text-gray-400 mt-1">JPG/PNG, maks 4MB, rasio A4 landscape.</p>
+            </div>
+            @include('admin.sertifikat._editor', ['editorId' => 'lomba', 'inputName' => 'certificate_layout', 'layout' => old('certificate_layout', $lomba->certificate_layout ?? '{}'), 'templateUrl' => !empty($lomba->certificate_template) ? asset('storage/' . $lomba->certificate_template) : null])
         </div>
 
         <!-- Submit -->

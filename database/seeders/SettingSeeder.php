@@ -23,6 +23,15 @@ class SettingSeeder extends Seeder
             ['key' => 'email', 'value' => ''],
             ['key' => 'address', 'value' => ''],
             ['key' => 'footer_text', 'value' => '© 2026 AKASHI — Ajang Kreasi Ashidiq • SMP Muhammadiyah Unggulan Ashidiq'],
+            ['key' => 'registration_status', 'value' => 'OPEN'],
+            ['key' => 'countdown_target', 'value' => '2026-09-16T07:00:00+07:00'],
+            ['key' => 'closed_title', 'value' => 'Pendaftaran Telah Ditutup'],
+            ['key' => 'closed_message', 'value' => 'Terima kasih atas antusiasme seluruh peserta AKASHI 2026. Sampai jumpa di kegiatan kami berikutnya!'],
+            ['key' => 'next_event_label', 'value' => 'AKASHI 2027'],
+            ['key' => 'certificate_mode', 'value' => 'global'],
+            ['key' => 'certificate_title', 'value' => 'Sertifikat Penghargaan'],
+            ['key' => 'certificate_body', 'value' => 'Diberikan dengan bangga kepada {nama} atas partisipasi pada lomba {lomba} ({kategori})'],
+            ['key' => 'certificate_layout', 'value' => '{"title":{"x":50,"y":20,"size":38,"align":"center","color":"#14253D","visible":true},"name":{"x":50,"y":46,"size":30,"align":"center","color":"#5B2BE0","visible":true},"body":{"x":50,"y":60,"size":13,"align":"center","color":"#4B5563","visible":true},"meta":{"x":50,"y":88,"size":10,"align":"center","color":"#9CA3AF","visible":true}}'],
         ];
 
         DB::table('settings')->insert($settings);

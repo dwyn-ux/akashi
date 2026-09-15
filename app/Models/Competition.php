@@ -26,6 +26,8 @@ class Competition extends Model
         'duration',
         'status',
         'cover_url',
+        'certificate_template',
+        'certificate_layout',
         'team_size',
         'prize_1',
         'prize_2',

@@ -68,11 +68,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="px-6 py-4 bg-gray-50 border-t border-gray-100">
+                <div class="px-6 py-4 bg-gray-50 border-t border-gray-100 flex flex-wrap items-center gap-4">
                     <a href="{{ route('kartu.show', $registration->reg_number) }}" class="text-primary-900 font-semibold text-sm hover:text-accent-600 transition inline-flex items-center gap-1">
                         Lihat Kartu Peserta
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
                     </a>
+                    @if($registration->certificate_path)
+                    <a href="{{ route('sertifikat.show', $registration->reg_number) }}" class="text-accent-600 font-semibold text-sm hover:text-accent-700 transition inline-flex items-center gap-1">
+                        Unduh Sertifikat (File Panitia)
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                    </a>
+                    @else
+                    <a href="{{ route('sertifikat.show', $registration->reg_number) }}" class="text-accent-600 font-semibold text-sm hover:text-accent-700 transition inline-flex items-center gap-1">
+                        Unduh Sertifikat
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                    </a>
+                    @endif
                 </div>
             </div>
             @else

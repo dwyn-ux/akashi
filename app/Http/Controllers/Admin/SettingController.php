@@ -43,6 +43,16 @@ class SettingController extends Controller
             'bank_name' => 'nullable|string|max:255',
             'account_number' => 'nullable|string|max:255',
             'account_holder' => 'nullable|string|max:255',
+            'registration_status' => 'nullable|string|in:OPEN,CLOSED',
+            'countdown_target' => 'nullable|string|max:255',
+            'closed_title' => 'nullable|string|max:255',
+            'closed_message' => 'nullable|string',
+            'next_event_label' => 'nullable|string|max:255',
+            'certificate_mode' => 'nullable|string|in:global,per_lomba',
+            'certificate_title' => 'nullable|string|max:255',
+            'certificate_body' => 'nullable|string',
+            'certificate_layout' => 'nullable|string',
+            'certificate_template' => 'nullable|image|max:4096',
             'site_logo' => 'nullable|image|max:2048',
             'school_logo' => 'nullable|image|max:2048',
             'favicon' => 'nullable|image|max:512',
@@ -54,7 +64,7 @@ class SettingController extends Controller
         ]);
 
         // Handle file uploads — store to public disk and save path
-        foreach (['site_logo', 'school_logo', 'favicon'] as $fileKey) {
+        foreach (['site_logo', 'school_logo', 'favicon', 'certificate_template'] as $fileKey) {
             if ($request->hasFile($fileKey)) {
                 $path = $request->file($fileKey)->store('settings', 'public');
                 // save as the same key
@@ -66,7 +76,7 @@ class SettingController extends Controller
         if (!empty($validated['primary_color_hex']) && empty($validated['primary_color'])) {
             $validated['primary_color'] = $validated['primary_color_hex'];
         }
-        unset($validated['primary_color_hex'], $validated['site_logo'], $validated['school_logo'], $validated['favicon']);
+        unset($validated['primary_color_hex'], $validated['site_logo'], $validated['school_logo'], $validated['favicon'], $validated['certificate_template']);
 
         // Backward compat: map old keys to new
         if (isset($validated['site_name']) && !isset($validated['event_name'])) {
@@ -83,6 +93,16 @@ class SettingController extends Controller
             $validated['site_logo'] = $validated['logo_url'];
         }
         unset($validated['site_name'], $validated['site_description'], $validated['whatsapp_number'], $validated['logo_url'], $validated['secondary_color']);
+
+        // Validate certificate layout JSON shape
+        if (!empty($validated['certificate_layout'])) {
+            $decoded = json_decode($validated['certificate_layout'], true);
+            if (! is_array($decoded)) {
+                unset($validated['certificate_layout']);
+            } else {
+                $validated['certificate_layout'] = json_encode($decoded);
+            }
+        }
 
         // Normalize Instagram: strip leading @ if present (we add it back in views)
         if (!empty($validated['instagram'])) {

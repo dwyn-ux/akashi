@@ -19,7 +19,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             try {
                 $settings = Setting::all()->pluck('value', 'key')->toArray();
-                $finished = !Competition::where('status', 'OPEN')->exists();
+                $globalClosed = ($settings['registration_status'] ?? 'OPEN') === 'CLOSED';
+                $finished = $globalClosed || !Competition::where('status', 'OPEN')->exists();
                 $view->with(compact('settings', 'finished'));
             } catch (\Throwable $e) {
                 $view->with('settings', []);

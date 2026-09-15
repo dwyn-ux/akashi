@@ -24,6 +24,7 @@ use App\Http\Controllers\KartuPdfController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LombaController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\SertifikatController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -40,6 +41,7 @@ Route::get('/dokumentasi', fn () => app(JuknisController::class)->show('dokument
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak.index');
 Route::get('/kartu/{regNumber}', [KartuController::class, 'show'])->name('kartu.show');
 Route::get('/kartu/{regNumber}/pdf', [KartuPdfController::class, 'show'])->name('kartu.pdf');
+Route::get('/sertifikat/{regNumber}', [SertifikatController::class, 'show'])->name('sertifikat.show');
 
 Route::get('/admin', fn () => redirect('/admin/login'));
 
@@ -64,6 +66,7 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/pendaftaran/{registration}', [RegistrationController::class, 'show'])->name('admin.registrations.show');
     Route::patch('/pendaftaran/{registration}', [RegistrationController::class, 'update'])->name('admin.registrations.update');
     Route::delete('/pendaftaran/{registration}', [RegistrationController::class, 'destroy'])->name('admin.registrations.destroy');
+    Route::post('/lomba/{competition}/sertifikat-bulk', [RegistrationController::class, 'bulkCertificates'])->name('admin.lomba.certificates.bulk');
 
     Route::get('/jadwal', [ScheduleController::class, 'index'])->name('admin.jadwal.index');
     Route::post('/jadwal', [ScheduleController::class, 'store'])->name('admin.jadwal.store');

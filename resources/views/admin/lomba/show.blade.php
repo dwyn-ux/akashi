@@ -104,7 +104,18 @@
 
         <!-- Pendaftar -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">Pendaftar ({{ $competition->registrations->count() }})</h3>
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-800">Pendaftar ({{ $competition->registrations->count() }})</h3>
+            </div>
+            <form method="POST" action="{{ route('admin.lomba.certificates.bulk', $competition) }}" enctype="multipart/form-data" class="mb-4 bg-gray-50 border border-gray-200 rounded-xl p-4">
+                @csrf
+                <label class="block text-sm font-medium text-gray-700 mb-1">Upload Sertifikat Bulk (ZIP, maks 50MB)</label>
+                <p class="text-xs text-gray-400 mb-2">Nama file = nomor registrasi. Contoh: <code>AKS-2026-00001.pdf</code></p>
+                <div class="flex items-center gap-3">
+                    <input type="file" name="zip" accept=".zip" required class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                    <button type="submit" class="px-4 py-2 bg-primary hover:bg-purple-800 text-white text-sm font-semibold rounded-xl transition">Upload ZIP</button>
+                </div>
+            </form>
             @if($competition->registrations->count())
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">

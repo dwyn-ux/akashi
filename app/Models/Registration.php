@@ -16,6 +16,7 @@ class Registration extends Model
         'status',
         'payment_status',
         'payment_proof_path',
+        'certificate_path',
         'admin_note',
         'extra_choice',
         'participant_id',

@@ -143,7 +143,8 @@
                 </div>
 
                 {{-- Countdown — notebook strip --}}
-                @if(!$finished && ($settings['event_date'] ?? null))
+                @php $countdownTarget = $settings['countdown_target'] ?? $settings['event_date'] ?? null; @endphp
+                @if(!$finished && $countdownTarget)
                 <div class="relative">
                     {{-- Tape — real SVG --}}
                     <img src="{{ asset('asset/ui/tape-paper.svg') }}" alt="" class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 z-10 opacity-70" style="transform: translateX(-50%) rotate(-1deg);" aria-hidden="true">
@@ -183,6 +184,15 @@
                     </div>
                 </div>
                 @else
+                @if(($settings['registration_status'] ?? 'OPEN') === 'CLOSED')
+                <div class="paper-sheet p-5 text-center" style="transform: rotate(0.3deg);">
+                    <div class="font-marker text-xl text-navy">{{ $settings['closed_title'] ?? 'Pendaftaran Telah Ditutup' }}</div>
+                    <p class="text-xs text-navy/60 mt-2 leading-relaxed">{{ $settings['closed_message'] ?? 'Terima kasih atas antusiasme seluruh peserta.' }}</p>
+                    <div class="mt-3 inline-flex items-center gap-1.5 bg-yellow-light border-2 border-navy/10 px-3 py-1 text-[11px] font-bold text-navy/70" style="border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;">
+                        Sampai jumpa di {{ $settings['next_event_label'] ?? 'AKASHI 2027' }}!
+                    </div>
+                </div>
+                @else
                 <div class="paper-sheet p-5 flex items-center justify-between" style="transform: rotate(0.3deg);">
                     <div>
                         <div class="font-marker text-lg text-navy">Pendaftaran Dibuka</div>
@@ -190,6 +200,7 @@
                     </div>
                     <a href="{{ route('daftar.index') }}" class="cta-button text-xs py-2 px-4">Daftar →</a>
                 </div>
+                @endif
                 @endif
             </div>
         </div>
@@ -669,10 +680,11 @@
 @endsection
 
 @push('scripts')
-@if(!$finished && ($settings['event_date'] ?? null))
+@php $countdownJsTarget = $settings['countdown_target'] ?? $settings['event_date'] ?? null; @endphp
+@if(!$finished && $countdownJsTarget)
 <script>
 (function(){
-    var raw='{{ addslashes($settings["event_date"] ?? "") }}';
+    var raw='{{ addslashes($countdownJsTarget ?? "") }}';
     var target;
     // Try ISO first, then common formats
     target = new Date(raw + 'T23:59:59').getTime();

@@ -213,6 +213,76 @@
             </div>
         </div>
 
+        <!-- Pendaftaran & Hitung Mundur -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Pendaftaran & Hitung Mundur</h3>
+            <p class="text-xs text-gray-500 mb-4">Satu switch global. CLOSED mengalahkan status OPEN tiap lomba.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Status Pendaftaran Global</label>
+                    <select name="registration_status" class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                        <option value="OPEN" {{ old('registration_status', $settings['registration_status'] ?? 'OPEN') === 'OPEN' ? 'selected' : '' }}>Dibuka</option>
+                        <option value="CLOSED" {{ old('registration_status', $settings['registration_status'] ?? '') === 'CLOSED' ? 'selected' : '' }}>Ditutup</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Target Hitung Mundur</label>
+                    <input type="datetime-local" name="countdown_target" value="{{ old('countdown_target', isset($settings['countdown_target']) && $settings['countdown_target'] ? date('Y-m-d\TH:i', strtotime($settings['countdown_target'])) : '') }}"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                    <p class="text-xs text-gray-400 mt-1">Kosongkan = ikut Tanggal Acara.</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Saat Ditutup</label>
+                    <input type="text" name="closed_title" value="{{ old('closed_title', $settings['closed_title'] ?? 'Pendaftaran Telah Ditutup') }}"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Label Event Berikutnya</label>
+                    <input type="text" name="next_event_label" value="{{ old('next_event_label', $settings['next_event_label'] ?? 'AKASHI 2027') }}"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Pesan Saat Ditutup</label>
+                    <textarea name="closed_message" rows="3"
+                              class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">{{ old('closed_message', $settings['closed_message'] ?? 'Terima kasih atas antusiasme seluruh peserta. Sampai jumpa di kegiatan kami berikutnya!') }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sertifikat -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 lg:col-span-2">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Sertifikat Peserta</h3>
+            <p class="text-xs text-gray-500 mb-4">Upload background A4 landscape, atur judul/isi, geser teks langsung di atas background. Placeholder: <code>{nama} {lomba} {kategori} {sekolah} {nomor}</code></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Mode Template</label>
+                    <select name="certificate_mode" class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                        <option value="global" {{ old('certificate_mode', $settings['certificate_mode'] ?? 'global') === 'global' ? 'selected' : '' }}>Global (satu template semua lomba)</option>
+                        <option value="per_lomba" {{ old('certificate_mode', $settings['certificate_mode'] ?? '') === 'per_lomba' ? 'selected' : '' }}>Per Lomba (atur di tiap lomba)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Background Global (JPG/PNG, maks 4MB)</label>
+                    <input type="file" name="certificate_template" accept="image/*" data-cert-preview="global"
+                           class="w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+                    @if(!empty($settings['certificate_template']))
+                        <p class="text-xs text-gray-400 mt-1">Saat ini: <a href="{{ asset('storage/' . $settings['certificate_template']) }}" target="_blank" class="text-primary font-semibold hover:underline">lihat</a> (upload baru untuk mengganti)</p>
+                    @endif
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Sertifikat</label>
+                    <input type="text" name="certificate_title" value="{{ old('certificate_title', $settings['certificate_title'] ?? 'Sertifikat Penghargaan') }}"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Isi Sertifikat</label>
+                    <textarea name="certificate_body" rows="2"
+                              class="w-full px-4 py-2 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none">{{ old('certificate_body', $settings['certificate_body'] ?? 'Diberikan dengan bangga kepada {nama} atas partisipasi pada lomba {lomba} ({kategori})') }}</textarea>
+                </div>
+            </div>
+            @include('admin.sertifikat._editor', ['editorId' => 'global', 'inputName' => 'certificate_layout', 'layout' => old('certificate_layout', $settings['certificate_layout'] ?? '{}'), 'templateUrl' => !empty($settings['certificate_template']) ? asset('storage/' . $settings['certificate_template']) : null, 'sample' => ['title' => old('certificate_title', $settings['certificate_title'] ?? 'Sertifikat Penghargaan'), 'name' => 'Ahmad Fauzi', 'body' => 'Diberikan dengan bangga kepada Ahmad Fauzi atas partisipasi pada lomba Olimpiade IPAS (Akademik)', 'meta' => 'AKS-2026-00001']])
+        </div>
+
         <!-- Save Button -->
         <div class="lg:col-span-2">
             <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex items-center justify-between">

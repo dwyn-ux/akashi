@@ -13,6 +13,12 @@ class DaftarController extends Controller
 {
     public function index()
     {
+        if ((Setting::where('key', 'registration_status')->value('value') ?? 'OPEN') === 'CLOSED') {
+            $settings = Setting::pluck('value', 'key')->toArray();
+
+            return view('daftar.closed', compact('settings'));
+        }
+
         $competitions = Competition::where('status', 'OPEN')->get();
         $bankName = Setting::where('key', 'bank_name')->value('value') ?? '';
         $accountNumber = Setting::where('key', 'account_number')->value('value') ?? '';
@@ -23,6 +29,10 @@ class DaftarController extends Controller
 
     public function store(Request $request)
     {
+        if ((Setting::where('key', 'registration_status')->value('value') ?? 'OPEN') === 'CLOSED') {
+            return redirect()->route('daftar.index')->with('error', 'Pendaftaran telah ditutup.');
+        }
+
         $validated = $request->validate([
             'competition_id' => 'required|exists:competitions,id',
             'full_name' => 'required|string|max:255',

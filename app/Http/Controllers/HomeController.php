@@ -16,8 +16,8 @@ class HomeController extends Controller
         $activities = Activity::orderByDesc('id')->limit(6)->get();
         $schedules = Schedule::orderBy('date')->limit(10)->get();
         $faqs = Faq::orderBy('order')->get();
-        $finished = ! Competition::where('status', 'OPEN')->exists();
         $settings = Setting::pluck('value', 'key')->toArray();
+        $finished = ($settings['registration_status'] ?? 'OPEN') === 'CLOSED' || ! Competition::where('status', 'OPEN')->exists();
 
         return view('home', compact('competitions', 'activities', 'schedules', 'faqs', 'finished', 'settings'));
     }

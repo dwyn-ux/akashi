@@ -50,6 +50,8 @@ class CompetitionController extends Controller
             'rules' => 'nullable|string',
             'required_docs' => 'nullable|string',
             'contact_person' => 'nullable|string|max:255',
+            'certificate_template' => 'nullable|image|max:4096',
+            'certificate_layout' => 'nullable|string',
         ]);
 
         // Handle cover image upload
@@ -58,6 +60,16 @@ class CompetitionController extends Controller
             $validated['cover_url'] = $path;
         }
         unset($validated['cover_image']);
+
+        if ($request->hasFile('certificate_template')) {
+            $validated['certificate_template'] = $request->file('certificate_template')->store('certificates/templates', 'public');
+        } else {
+            unset($validated['certificate_template']);
+        }
+        unset($validated['certificate_template_file']);
+        if (!empty($validated['certificate_layout']) && ! is_array(json_decode($validated['certificate_layout'], true))) {
+            unset($validated['certificate_layout']);
+        }
 
         $validated['slug'] = Str::slug($validated['name']);
 
@@ -108,6 +120,8 @@ class CompetitionController extends Controller
             'rules' => 'nullable|string',
             'required_docs' => 'nullable|string',
             'contact_person' => 'nullable|string|max:255',
+            'certificate_template' => 'nullable|image|max:4096',
+            'certificate_layout' => 'nullable|string',
         ]);
 
         // Handle cover image upload
@@ -120,6 +134,18 @@ class CompetitionController extends Controller
             $validated['cover_url'] = $path;
         }
         unset($validated['cover_image']);
+
+        if ($request->hasFile('certificate_template')) {
+            if ($competition->certificate_template && File::exists(public_path('storage/' . $competition->certificate_template))) {
+                File::delete(public_path('storage/' . $competition->certificate_template));
+            }
+            $validated['certificate_template'] = $request->file('certificate_template')->store('certificates/templates', 'public');
+        } else {
+            unset($validated['certificate_template']);
+        }
+        if (!empty($validated['certificate_layout']) && ! is_array(json_decode($validated['certificate_layout'], true))) {
+            unset($validated['certificate_layout']);
+        }
 
         $validated['slug'] = Str::slug($validated['name']);
 
