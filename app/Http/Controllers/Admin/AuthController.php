@@ -11,8 +11,9 @@ class AuthController extends Controller
     public function showLogin()
     {
         if (Auth::check() && Auth::user()->isAdmin()) {
-            return redirect('/admin/dashboard');
+            return redirect()->route('admin.dashboard');
         }
+        Auth::logout(); // ponytail: clear stale non-admin session, upgrade to role-aware guard when roles grow
 
         return view('admin.login');
     }
@@ -27,7 +28,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials) && Auth::user()->isAdmin()) {
             $request->session()->regenerate();
 
-            return redirect('/admin/dashboard');
+            return redirect()->route('admin.dashboard');
         }
 
         return back()->withErrors([
@@ -41,6 +42,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/admin/login');
+        return redirect()->route('admin.login');
     }
 }

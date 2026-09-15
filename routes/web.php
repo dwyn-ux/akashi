@@ -43,9 +43,9 @@ Route::get('/kartu/{regNumber}', [KartuController::class, 'show'])->name('kartu.
 Route::get('/kartu/{regNumber}/pdf', [KartuPdfController::class, 'show'])->name('kartu.pdf');
 Route::get('/sertifikat/{regNumber}', [SertifikatController::class, 'show'])->name('sertifikat.show');
 
-Route::get('/admin', fn () => redirect('/admin/login'));
+Route::get('/admin', fn () => redirect()->route('admin.login'));
 
-Route::middleware('guest')->prefix('admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('admin.login');
     Route::post('/login', [AuthController::class, 'login'])->name('admin.login.post');
 });
